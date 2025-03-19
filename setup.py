@@ -66,14 +66,9 @@ _move_ext = Extension('pandas_msgpack._move',
 extensions.append(_move_ext)
 
 
-def readme():
-    with open('README.rst') as f:
-        return f.read()
-
 setup(
     name=NAME,
     description="Pandas interface to msgpack",
-    long_description=readme(),
     ext_modules=cythonize(extensions),
     packages=['pandas_msgpack',
               'pandas_msgpack.includes',
