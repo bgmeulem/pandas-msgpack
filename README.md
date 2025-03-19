@@ -1,5 +1,4 @@
-pandas-msgpack
-==============
+# pandas-msgpack
 
 **pandas-msgpack** is a package providing an interface to msgpack from pandas
 
@@ -13,12 +12,10 @@ We have no interest in adding new features, or making this broadly applicable.
 
 
 
-Installation
-------------
+## Installation
 
 Install latest release version via pip
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: shell
-
-   $ pip install isf-pandas-msgpack
+```shell
+pip install isf-pandas-msgpack
+```
