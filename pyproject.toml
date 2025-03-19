@@ -1,6 +1,6 @@
 [project]
 name = "pandas-msgpack"
-version = "0.1.1"
+version = "0.1.12"
 description = "Pandas interface to msgpack"
 readme = "README.rst"
 classifiers=[
@@ -43,6 +43,7 @@ build = ['build']
 build = { cmd = [
     "python", 
     "setup.py", 
+    "register",
     "sdist", 
     "--formats=gztar"
     ], description = "Build the package" }
