@@ -18,10 +18,6 @@ def is_platform_linux():
 def is_platform_mac():
     return sys.platform == 'darwin'
 
-# versioning
-import versioneer
-cmdclass = versioneer.get_cmdclass()
-
 try:
     import Cython
     from Cython.Build import cythonize
@@ -76,8 +72,6 @@ def readme():
 
 setup(
     name=NAME,
-    version=versioneer.get_version(),
-    cmdclass=cmdclass,
     description="Pandas interface to msgpack",
     long_description=readme(),
     ext_modules=cythonize(extensions),
