@@ -43,7 +43,6 @@ build = ['build']
 build = { cmd = [
     "python", 
     "setup.py", 
-    "register",
     "sdist", 
     "--formats=gztar"
     ], description = "Build the package" }
@@ -54,3 +53,4 @@ test = { cmd = [
 [tool.pixi.feature.build.dependencies]
 setuptools = "*"
 cython = ">=3.0.12,<4"
+twine = ">=6.1.0,<7"
