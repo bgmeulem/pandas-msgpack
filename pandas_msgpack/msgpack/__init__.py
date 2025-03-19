@@ -3,7 +3,9 @@
 from collections import namedtuple
 
 from pandas_msgpack.msgpack.exceptions import *  # noqa
-from pandas_msgpack.msgpack._version import version  # noqa
+from pandas_msgpack.msgpack._version import version
+import pyximport
+pyximport.install()
 
 
 class ExtType(namedtuple('ExtType', 'code data')):
