@@ -77,7 +77,7 @@ except ImportError:
 
 from pandas import (Timestamp, Period, Series, DataFrame,  # noqa
                     Index, MultiIndex, Float64Index, Int64Index,
-                    Panel, RangeIndex, PeriodIndex, DatetimeIndex, NaT,
+                    RangeIndex, PeriodIndex, DatetimeIndex, NaT,
                     Categorical, CategoricalIndex)
 #from pandas.sparse.api import SparseSeries, SparseDataFrame
 #from pandas.sparse.array import BlockIndex, IntIndex
