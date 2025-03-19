@@ -1,8 +1,6 @@
 pandas-msgpack
 ==============
 
-|Appveyor Build Status|
-
 **pandas-msgpack** is a package providing an interface to msgpack from pandas
 
 This package is a fork of the original `pandas-msgpack`, which has not been maintained since
@@ -23,12 +21,4 @@ Install latest release version via pip
 
 .. code-block:: shell
 
-   $ pip install pandas-msgpack
-
-Usage
------
-
-See the `pandas-msgpack documentation <https://pandas-msgpack.readthedocs.io/>`_ for more details.
-
-.. |Version Status| image:: https://img.shields.io/pypi/v/pandas-msgpack.svg
-   :target: https://pypi.python.org/pypi/isf-pandas-msgpack/
+   $ pip install isf-pandas-msgpack
