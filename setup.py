@@ -3,7 +3,6 @@
 
 import sys
 from setuptools import setup
-import pkg_resources
 from distutils.extension import Extension
 from distutils.command.build_ext import build_ext as build_ext
 
