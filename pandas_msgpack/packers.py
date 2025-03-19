@@ -90,7 +90,7 @@ def get_filepath_or_buffer(*args, **kwargs):
     return get_filepath_or_buffer(*args, **kwargs)[:3]
 
 
-from pandas_msgpack import _is_pandas_legacy_version
+# from pandas_msgpack import _is_pandas_legacy_version
 from pandas_msgpack.msgpack import (Unpacker as _Unpacker,
                                     Packer as _Packer,
                                     ExtType)
@@ -592,11 +592,12 @@ def decode(obj):
     elif typ == u'period_index':
         data = unconvert(obj[u'data'], np.int64, obj.get(u'compress'))
         d = dict(name=obj[u'name'], freq=obj[u'freq'])
-        if _is_pandas_legacy_version:
-            # legacy
-            return globals()[obj[u'klass']](data, **d)
-        else:
-            return globals()[obj[u'klass']]._from_ordinals(data, **d)
+        # if _is_pandas_legacy_version:
+        #     # legacy
+        #     return globals()[obj[u'klass']](data, **d)
+        # else:
+        #     return globals()[obj[u'klass']]._from_ordinals(data, **d)
+        return globals()[obj[u'klass']]._from_ordinals(data, **d)
     elif typ == u'datetime_index':
         data = unconvert(obj[u'data'], np.int64, obj.get(u'compress'))
         d = dict(name=obj[u'name'], freq=obj[u'freq'], verify_integrity=False)
