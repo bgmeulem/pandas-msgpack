@@ -3,6 +3,7 @@
 
 import sys
 from setuptools import setup
+import importlib.resources, importlib.metadata
 from distutils.extension import Extension
 from distutils.command.build_ext import build_ext as build_ext
 
@@ -80,10 +81,8 @@ setup(
     description="Pandas interface to msgpack",
     long_description=readme(),
     ext_modules=cythonize(extensions),
-    keywords='data',
     packages=['pandas_msgpack',
               'pandas_msgpack.includes',
               'pandas_msgpack.msgpack',
               'pandas_msgpack.tests'],
-    test_suite='tests',
 )
