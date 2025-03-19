@@ -89,8 +89,6 @@ def get_filepath_or_buffer(*args, **kwargs):
     from pandas.io.common import get_filepath_or_buffer
     return get_filepath_or_buffer(*args, **kwargs)[:3]
 
-from pandas.core.internals import BlockManager, make_block, _safe_reshape
-import pandas.core.internals as internals
 
 from pandas_msgpack import _is_pandas_legacy_version
 from pandas_msgpack.msgpack import (Unpacker as _Unpacker,
@@ -629,6 +627,9 @@ def decode(obj):
         return result
 
     elif typ == u'block_manager':
+        raise NotImplementedError("Deserializing block managers requires pandas internals, which we have not (yet) patched.")
+        from pandas.core.internals import BlockManager, make_block, _safe_reshape
+        import pandas.core.internals as internals
         axes = obj[u'axes']
 
         def create_block(b):
