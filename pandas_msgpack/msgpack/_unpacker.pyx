@@ -4,8 +4,10 @@
 from cpython cimport *
 cdef extern from "Python.h":
     ctypedef struct PyObject
-    cdef int PyObject_AsReadBuffer(object o, const void** buff,
-                                   Py_ssize_t* buf_len) except -1
+    # cdef int PyObject_AsReadBuffer(object o, const void** buff,
+    #                                Py_ssize_t* buf_len) except -1
+    cdef int PyObject_GetBuffer(object obj, Py_buffer* view, int flags) except -1
+    cdef void PyBuffer_Release(Py_buffer* view)
 
 from libc.stdlib cimport *
 from libc.string cimport *
@@ -120,8 +122,13 @@ def unpackb(object packed, object object_hook=None, object list_hook=None,
     cdef Py_ssize_t buf_len
     cdef char* cenc = NULL
     cdef char* cerr = NULL
+    cdef Py_buffer view
 
-    PyObject_AsReadBuffer(packed, <const void**>&buf, &buf_len)
+    # PyObject_AsReadBuffer(packed, <const void**>&buf, &buf_len)
+    if PyObject_GetBuffer(packed, &view, PyBUF_SIMPLE) < 0:
+        raise ValueError("Unable to get buffer view")
+    buf = <char*>view.buf
+    buf_len = view.len
 
     if encoding is not None:
         if isinstance(encoding, unicode):

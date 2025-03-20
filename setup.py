@@ -65,7 +65,6 @@ _move_ext = Extension('pandas_msgpack._move',
                       sources=['pandas_msgpack/move.c'])
 extensions.append(_move_ext)
 
-
 setup(
     name=NAME,
     description="Pandas interface to msgpack",

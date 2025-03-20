@@ -11,12 +11,10 @@ import pandas
 # _is_pandas_legacy_version = pv.version[1] == 19 and len(pv.version) == 3
 
 from .packers import to_msgpack, read_msgpack
-
-# versioning
 from ._version import get_versions
 
 versions = get_versions()
-__version__ = versions.get('closest-tag', versions['version'])
-__git_revision__ = versions['full-revisionid']
+__version__ = versions.get("closest-tag", versions["version"])
+
 # del get_versions, versions, pv, LooseVersion, pandas
-del get_versions, versions, pandas
+del pandas
