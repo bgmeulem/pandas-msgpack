@@ -30,6 +30,7 @@ requires = ["setuptools>=64", "Cython", "setuptools-scm>=8"]
 build = ["build>=1.2.2.post1,<2"]
 
 [tool.setuptools_scm]
+version_file = "isf_pandas_msgpack/_version.py"
 
 [tool.pixi.system-requirements]
 libc = "2.17"
@@ -55,3 +56,6 @@ twine = ">=6.1.0,<7"
 hatch = ">=1.14.0,<2"
 pip = ">=25.0.1,<26"
 pandas = ">=1.0.0,<2"
+
+[tool.pixi.dependencies]
+setuptools_scm = ">=8.2.1,<9"
