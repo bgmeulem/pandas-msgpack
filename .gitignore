@@ -54,6 +54,8 @@ dist
 *.egg-info
 .eggs
 .pypirc
+# Auto-generated _version.py
+**_version.py
 
 # tox testing tool
 .tox
