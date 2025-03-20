@@ -1,7 +1,7 @@
 [project]
-name = "isf-pandas-msgpack-test"
+name = "isf-pandas-msgpack"
 description = "Pandas interface to msgpack - ISF patch"
-version = "0.1.21"
+dynamic = ["version"]
 classifiers=[
     'Development Status :: 4 - Beta',
     'Environment :: Console',
@@ -24,14 +24,12 @@ platforms = ["linux-64", "osx-arm64", "osx-64", "linux-aarch64", "win-64"]
 
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools", "Cython"]
+requires = ["setuptools>=64", "Cython", "setuptools-scm>=8"]
 
-[tool.hatch.build.hooks.cython]
-extensions = [
-    {name = "pandas_msgpack._move", sources = ["pandas_msgpack/move.c"]},
-    {name = "pandas_msgpack.msgpack._packer", sources = ["pandas_msgpack/msgpack/_packer.pyx"], language = "c++", include-dirs = ["pandas_msgpack/includes"], define-macros = ["__LITTLE_ENDIAN__"]},
-    {name = "pandas_msgpack.msgpack._unpacker", sources = ["pandas_msgpack/msgpack/_unpacker.pyx"], language = "c++", include-dirs = ["pandas_msgpack/includes"], define-macros = ["__LITTLE_ENDIAN__"]},
-]
+[dependency-groups]
+build = ["build>=1.2.2.post1,<2"]
+
+[tool.setuptools_scm]
 
 [tool.pixi.system-requirements]
 libc = "2.17"
@@ -45,14 +43,13 @@ build_ext = { cmd = [
     "python", "setup.py", "build_ext", "--inplace"
     ], description = "Build the Cython extensions" }
 build = { cmd = [
-    "python", "setup.py", "sdist", "--formats=gztar"
+    "python", "-m", "build", "--sdist"
     ], description = "Build the package" }
 test = { cmd = [
     "pytest --tb=short -q --disable-warnings"
     ], description = "Run the tests" }
 
 [tool.pixi.feature.build.dependencies]
-setuptools = "*"
 cython = ">=3.0.12,<4"
 twine = ">=6.1.0,<7"
 hatch = ">=1.14.0,<2"

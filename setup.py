@@ -37,21 +37,21 @@ else:
     macros = [('__LITTLE_ENDIAN__', '1')]
 
 extensions = []
-packer_ext = Extension('pandas_msgpack.msgpack._packer',
-                        depends=['pandas_msgpack/includes/pack.h',
-                                 'pandas_msgpack/includes/pack_template.h'],
-                        sources = ['pandas_msgpack/msgpack/_packer.pyx'],
+packer_ext = Extension('isf_pandas_msgpack.msgpack._packer',
+                        depends=['isf_pandas_msgpack/includes/pack.h',
+                                 'isf_pandas_msgpack/includes/pack_template.h'],
+                        sources = ['isf_pandas_msgpack/msgpack/_packer.pyx'],
                         language='c++',
                         include_dirs=['pandas_msgack/includes'],
                         define_macros=macros,
                         extra_compile_args=extra_compile_args)
-unpacker_ext = Extension('pandas_msgpack.msgpack._unpacker',
-                        depends=['pandas_msgpack/includes/unpack.h',
-                                 'pandas_msgpack/includes/unpack_define.h',
-                                 'pandas_msgpack/includes/unpack_template.h'],
-                        sources = ['pandas_msgpack/msgpack/_unpacker.pyx'],
+unpacker_ext = Extension('isf_pandas_msgpack.msgpack._unpacker',
+                        depends=['isf_pandas_msgpack/includes/unpack.h',
+                                 'isf_pandas_msgpack/includes/unpack_define.h',
+                                 'isf_pandas_msgpack/includes/unpack_template.h'],
+                        sources = ['isf_pandas_msgpack/msgpack/_unpacker.pyx'],
                          language='c++',
-                        include_dirs=['pandas_msgpack/includes'],
+                        include_dirs=['isf_pandas_msgpack/includes'],
                         define_macros=macros,
                         extra_compile_args=extra_compile_args)
 extensions.append(packer_ext)
@@ -60,17 +60,17 @@ extensions.append(unpacker_ext)
 #----------------------------------------------------------------------
 # util
 # extension for pseudo-safely moving bytes into mutable buffers
-_move_ext = Extension('pandas_msgpack._move',
+_move_ext = Extension('isf_pandas_msgpack._move',
                       depends=[],
-                      sources=['pandas_msgpack/move.c'])
+                      sources=['isf_pandas_msgpack/move.c'])
 extensions.append(_move_ext)
 
 setup(
     name=NAME,
     description="Pandas interface to msgpack",
     ext_modules=cythonize(extensions),
-    packages=['pandas_msgpack',
-              'pandas_msgpack.includes',
-              'pandas_msgpack.msgpack',
-              'pandas_msgpack.tests'],
+    packages=['isf_pandas_msgpack',
+              'isf_pandas_msgpack.includes',
+              'isf_pandas_msgpack.msgpack',
+              'isf_pandas_msgpack.tests'],
 )

@@ -11,10 +11,11 @@ import pandas
 # _is_pandas_legacy_version = pv.version[1] == 19 and len(pv.version) == 3
 
 from .packers import to_msgpack, read_msgpack
-from ._version import get_versions
-
-versions = get_versions()
-__version__ = versions.get("closest-tag", versions["version"])
-
+from importlib.metadata import version, PackageNotFoundError
+try:
+    __version__ = version("isf-pandas-msgpack")
+except PackageNotFoundError:
+    # package is not installed
+    pass
 # del get_versions, versions, pv, LooseVersion, pandas
 del pandas

@@ -10,23 +10,23 @@
             ]
         ],
         "depends": [
-            "pandas_msgpack/includes/pack.h",
-            "pandas_msgpack/includes/pack_template.h"
+            "isf_pandas_msgpack/includes/pack.h",
+            "isf_pandas_msgpack/includes/pack_template.h"
         ],
         "extra_compile_args": [
             "-Wno-unused-function"
         ],
         "include_dirs": [
-            "pandas_msgpack/msgpack",
+            "isf_pandas_msgpack/msgpack",
             "pandas_msgack/includes"
         ],
         "language": "c++",
-        "name": "pandas_msgpack.msgpack._packer",
+        "name": "isf_pandas_msgpack.msgpack._packer",
         "sources": [
-            "pandas_msgpack/msgpack/_packer.pyx"
+            "isf_pandas_msgpack/msgpack/_packer.pyx"
         ]
     },
-    "module_name": "pandas_msgpack.msgpack._packer"
+    "module_name": "isf_pandas_msgpack.msgpack._packer"
 }
 END: Cython Metadata */
 
@@ -1275,8 +1275,8 @@ static CYTHON_INLINE float __PYX_NAN() {
     #define __PYX_EXTERN_C extern "C++"
 #endif
 
-#define __PYX_HAVE__pandas_msgpack__msgpack___packer
-#define __PYX_HAVE_API__pandas_msgpack__msgpack___packer
+#define __PYX_HAVE__isf_pandas_msgpack__msgpack___packer
+#define __PYX_HAVE_API__isf_pandas_msgpack__msgpack___packer
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -1533,12 +1533,12 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char *__pyx_f[] = {
-  "pandas_msgpack/msgpack/_packer.pyx",
-  ".pixi/envs/build/lib/python3.11/site-packages/Cython/Includes/cpython/contextvars.pxd",
+  "isf_pandas_msgpack/msgpack/_packer.pyx",
+  "contextvars.pxd",
   "<stringsource>",
-  ".pixi/envs/build/lib/python3.11/site-packages/Cython/Includes/cpython/type.pxd",
-  ".pixi/envs/build/lib/python3.11/site-packages/Cython/Includes/cpython/bool.pxd",
-  ".pixi/envs/build/lib/python3.11/site-packages/Cython/Includes/cpython/complex.pxd",
+  "type.pxd",
+  "bool.pxd",
+  "complex.pxd",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* ForceInitThreads.proto */
@@ -1551,7 +1551,7 @@ static const char *__pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer;
+struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
 struct __pyx_opt_args_7cpython_11contextvars_get_value;
 struct __pyx_opt_args_7cpython_11contextvars_get_value_no_default;
 
@@ -1578,30 +1578,30 @@ struct __pyx_opt_args_7cpython_11contextvars_get_value_no_default {
   int __pyx_n;
   PyObject *default_value;
 };
-struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack;
+struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack;
 
-/* "pandas_msgpack/msgpack/_packer.pyx":117
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":117
  *         free(self.pk.buf);
  * 
  *     cdef int _pack(self, object o,             # <<<<<<<<<<<<<<
  *                    int nest_limit=DEFAULT_RECURSE_LIMIT) except -1:
  *         cdef long long llval
  */
-struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack {
+struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack {
   int __pyx_n;
   int nest_limit;
 };
 
-/* "pandas_msgpack/msgpack/_packer.pyx":40
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":40
  * 
  * 
  * cdef class Packer(object):             # <<<<<<<<<<<<<<
  *     """
  *     MessagePack Packer
  */
-struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer {
+struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer {
   PyObject_HEAD
-  struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_vtab;
+  struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_vtab;
   struct msgpack_packer pk;
   PyObject *_default;
   PyObject *_bencoding;
@@ -1614,11 +1614,11 @@ struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer {
 
 
 
-struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer {
-  int (*_pack)(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args);
-  PyObject *(*pack)(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, int __pyx_skip_dispatch);
+struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer {
+  int (*_pack)(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args);
+  PyObject *(*pack)(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, int __pyx_skip_dispatch);
 };
-static struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_vtabptr_14pandas_msgpack_7msgpack_7_packer_Packer;
+static struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_vtabptr_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
 /* #### Code section: utility_code_proto ### */
 
 /* --- Runtime support code (head) --- */
@@ -2305,8 +2305,8 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 /* #### Code section: module_declarations ### */
 static CYTHON_INLINE double __pyx_f_7cpython_7complex_7complex_4real_real(PyComplexObject *__pyx_v_self); /* proto*/
 static CYTHON_INLINE double __pyx_f_7cpython_7complex_7complex_4imag_imag(PyComplexObject *__pyx_v_self); /* proto*/
-static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_o, struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args); /* proto*/
-static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj, int __pyx_skip_dispatch); /* proto*/
+static int __pyx_f_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_o, struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args); /* proto*/
+static PyObject *__pyx_f_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj, int __pyx_skip_dispatch); /* proto*/
 
 /* Module declarations from "cpython.version" */
 
@@ -2398,15 +2398,15 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
 
 /* Module declarations from "libc.limits" */
 
-/* Module declarations from "pandas_msgpack.msgpack._packer" */
-static int __pyx_v_14pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT;
+/* Module declarations from "isf_pandas_msgpack.msgpack._packer" */
+static int __pyx_v_18isf_pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT;
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "pandas_msgpack.msgpack._packer"
-extern int __pyx_module_is_main_pandas_msgpack__msgpack___packer;
-int __pyx_module_is_main_pandas_msgpack__msgpack___packer = 0;
+#define __Pyx_MODULE_NAME "isf_pandas_msgpack.msgpack._packer"
+extern int __pyx_module_is_main_isf_pandas_msgpack__msgpack___packer;
+int __pyx_module_is_main_isf_pandas_msgpack__msgpack___packer = 0;
 
-/* Implementation of "pandas_msgpack.msgpack._packer" */
+/* Implementation of "isf_pandas_msgpack.msgpack._packer" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_MemoryError;
 static PyObject *__pyx_builtin_TypeError;
@@ -2488,25 +2488,25 @@ static const char __pyx_k_Packer___setstate_cython[] = "Packer.__setstate_cython
 static const char __pyx_k_Packer_pack_array_header[] = "Packer.pack_array_header";
 static const char __pyx_k_recursion_limit_exceeded[] = "recursion limit exceeded.";
 static const char __pyx_k_default_must_be_a_callable[] = "default must be a callable.";
-static const char __pyx_k_pandas_msgpack_msgpack__packer[] = "pandas_msgpack.msgpack._packer";
 static const char __pyx_k_Can_t_encode_unicode_string_no_e[] = "Can't encode unicode string: no encoding is specified";
 static const char __pyx_k_Unable_to_allocate_internal_buff[] = "Unable to allocate internal buffer.";
+static const char __pyx_k_isf_pandas_msgpack_msgpack__pack[] = "isf_pandas_msgpack/msgpack/_packer.pyx";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
-static const char __pyx_k_pandas_msgpack_msgpack__packer_p[] = "pandas_msgpack/msgpack/_packer.pyx";
+static const char __pyx_k_isf_pandas_msgpack_msgpack__pack_2[] = "isf_pandas_msgpack.msgpack._packer";
 /* #### Code section: decls ### */
-static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
-static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_default, PyObject *__pyx_v_encoding, PyObject *__pyx_v_unicode_errors, PyObject *__pyx_v_use_single_float, int __pyx_v_autoreset, int __pyx_v_use_bin_type); /* proto */
-static void __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_typecode, PyObject *__pyx_v_data); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_pairs); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_14pandas_msgpack_7msgpack_7_packer_Packer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
+static int __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_default, PyObject *__pyx_v_encoding, PyObject *__pyx_v_unicode_errors, PyObject *__pyx_v_use_single_float, int __pyx_v_autoreset, int __pyx_v_use_bin_type); /* proto */
+static void __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_typecode, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_pairs); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_16reset(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_18isf_pandas_msgpack_7msgpack_7_packer_Packer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2628,9 +2628,9 @@ typedef struct {
   #if CYTHON_USE_MODULE_STATE
   #endif
   #if CYTHON_USE_MODULE_STATE
-  PyObject *__pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer;
+  PyObject *__pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
   #endif
-  PyTypeObject *__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer;
+  PyTypeObject *__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
   PyObject *__pyx_kp_s_Can_t_encode_unicode_string_no_e;
   PyObject *__pyx_kp_s_EXT_data_is_too_large;
   PyObject *__pyx_n_s_ExtType;
@@ -2675,6 +2675,8 @@ typedef struct {
   PyObject *__pyx_n_s_import;
   PyObject *__pyx_n_s_is_coroutine;
   PyObject *__pyx_kp_u_isenabled;
+  PyObject *__pyx_kp_s_isf_pandas_msgpack_msgpack__pack;
+  PyObject *__pyx_n_s_isf_pandas_msgpack_msgpack__pack_2;
   PyObject *__pyx_n_s_items;
   PyObject *__pyx_n_s_iteritems;
   PyObject *__pyx_n_s_k;
@@ -2689,8 +2691,6 @@ typedef struct {
   PyObject *__pyx_n_s_pack_map_header;
   PyObject *__pyx_n_s_pack_map_pairs;
   PyObject *__pyx_n_s_pairs;
-  PyObject *__pyx_n_s_pandas_msgpack_msgpack__packer;
-  PyObject *__pyx_kp_s_pandas_msgpack_msgpack__packer_p;
   PyObject *__pyx_n_s_pyx_state;
   PyObject *__pyx_n_s_pyx_vtable;
   PyObject *__pyx_kp_s_recursion_limit_exceeded;
@@ -2782,8 +2782,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_7cpython_4type_type);
   Py_CLEAR(clear_module_state->__pyx_ptype_7cpython_4bool_bool);
   Py_CLEAR(clear_module_state->__pyx_ptype_7cpython_7complex_complex);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
-  Py_CLEAR(clear_module_state->__pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer);
+  Py_CLEAR(clear_module_state->__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
+  Py_CLEAR(clear_module_state->__pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Can_t_encode_unicode_string_no_e);
   Py_CLEAR(clear_module_state->__pyx_kp_s_EXT_data_is_too_large);
   Py_CLEAR(clear_module_state->__pyx_n_s_ExtType);
@@ -2828,6 +2828,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_import);
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
   Py_CLEAR(clear_module_state->__pyx_kp_u_isenabled);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_isf_pandas_msgpack_msgpack__pack);
+  Py_CLEAR(clear_module_state->__pyx_n_s_isf_pandas_msgpack_msgpack__pack_2);
   Py_CLEAR(clear_module_state->__pyx_n_s_items);
   Py_CLEAR(clear_module_state->__pyx_n_s_iteritems);
   Py_CLEAR(clear_module_state->__pyx_n_s_k);
@@ -2842,8 +2844,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_pack_map_header);
   Py_CLEAR(clear_module_state->__pyx_n_s_pack_map_pairs);
   Py_CLEAR(clear_module_state->__pyx_n_s_pairs);
-  Py_CLEAR(clear_module_state->__pyx_n_s_pandas_msgpack_msgpack__packer);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_pandas_msgpack_msgpack__packer_p);
   Py_CLEAR(clear_module_state->__pyx_n_s_pyx_state);
   Py_CLEAR(clear_module_state->__pyx_n_s_pyx_vtable);
   Py_CLEAR(clear_module_state->__pyx_kp_s_recursion_limit_exceeded);
@@ -2912,8 +2912,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_ptype_7cpython_4type_type);
   Py_VISIT(traverse_module_state->__pyx_ptype_7cpython_4bool_bool);
   Py_VISIT(traverse_module_state->__pyx_ptype_7cpython_7complex_complex);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
-  Py_VISIT(traverse_module_state->__pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer);
+  Py_VISIT(traverse_module_state->__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
+  Py_VISIT(traverse_module_state->__pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Can_t_encode_unicode_string_no_e);
   Py_VISIT(traverse_module_state->__pyx_kp_s_EXT_data_is_too_large);
   Py_VISIT(traverse_module_state->__pyx_n_s_ExtType);
@@ -2958,6 +2958,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_import);
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
   Py_VISIT(traverse_module_state->__pyx_kp_u_isenabled);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_isf_pandas_msgpack_msgpack__pack);
+  Py_VISIT(traverse_module_state->__pyx_n_s_isf_pandas_msgpack_msgpack__pack_2);
   Py_VISIT(traverse_module_state->__pyx_n_s_items);
   Py_VISIT(traverse_module_state->__pyx_n_s_iteritems);
   Py_VISIT(traverse_module_state->__pyx_n_s_k);
@@ -2972,8 +2974,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_pack_map_header);
   Py_VISIT(traverse_module_state->__pyx_n_s_pack_map_pairs);
   Py_VISIT(traverse_module_state->__pyx_n_s_pairs);
-  Py_VISIT(traverse_module_state->__pyx_n_s_pandas_msgpack_msgpack__packer);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_pandas_msgpack_msgpack__packer_p);
   Py_VISIT(traverse_module_state->__pyx_n_s_pyx_state);
   Py_VISIT(traverse_module_state->__pyx_n_s_pyx_vtable);
   Py_VISIT(traverse_module_state->__pyx_kp_s_recursion_limit_exceeded);
@@ -3141,9 +3141,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #if CYTHON_USE_MODULE_STATE
 #endif
 #if CYTHON_USE_MODULE_STATE
-#define __pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer __pyx_mstate_global->__pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer
+#define __pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer __pyx_mstate_global->__pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer
 #endif
-#define __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer __pyx_mstate_global->__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer
+#define __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer __pyx_mstate_global->__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer
 #define __pyx_kp_s_Can_t_encode_unicode_string_no_e __pyx_mstate_global->__pyx_kp_s_Can_t_encode_unicode_string_no_e
 #define __pyx_kp_s_EXT_data_is_too_large __pyx_mstate_global->__pyx_kp_s_EXT_data_is_too_large
 #define __pyx_n_s_ExtType __pyx_mstate_global->__pyx_n_s_ExtType
@@ -3188,6 +3188,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_import __pyx_mstate_global->__pyx_n_s_import
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
 #define __pyx_kp_u_isenabled __pyx_mstate_global->__pyx_kp_u_isenabled
+#define __pyx_kp_s_isf_pandas_msgpack_msgpack__pack __pyx_mstate_global->__pyx_kp_s_isf_pandas_msgpack_msgpack__pack
+#define __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2 __pyx_mstate_global->__pyx_n_s_isf_pandas_msgpack_msgpack__pack_2
 #define __pyx_n_s_items __pyx_mstate_global->__pyx_n_s_items
 #define __pyx_n_s_iteritems __pyx_mstate_global->__pyx_n_s_iteritems
 #define __pyx_n_s_k __pyx_mstate_global->__pyx_n_s_k
@@ -3202,8 +3204,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_pack_map_header __pyx_mstate_global->__pyx_n_s_pack_map_header
 #define __pyx_n_s_pack_map_pairs __pyx_mstate_global->__pyx_n_s_pack_map_pairs
 #define __pyx_n_s_pairs __pyx_mstate_global->__pyx_n_s_pairs
-#define __pyx_n_s_pandas_msgpack_msgpack__packer __pyx_mstate_global->__pyx_n_s_pandas_msgpack_msgpack__packer
-#define __pyx_kp_s_pandas_msgpack_msgpack__packer_p __pyx_mstate_global->__pyx_kp_s_pandas_msgpack_msgpack__packer_p
 #define __pyx_n_s_pyx_state __pyx_mstate_global->__pyx_n_s_pyx_state
 #define __pyx_n_s_pyx_vtable __pyx_mstate_global->__pyx_n_s_pyx_vtable
 #define __pyx_kp_s_recursion_limit_exceeded __pyx_mstate_global->__pyx_kp_s_recursion_limit_exceeded
@@ -3545,7 +3545,7 @@ static CYTHON_INLINE PyObject *__pyx_f_7cpython_11contextvars_get_value_no_defau
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":79
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":79
  *     cdef bint autoreset
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -3554,8 +3554,8 @@ static CYTHON_INLINE PyObject *__pyx_f_7cpython_11contextvars_get_value_no_defau
  */
 
 /* Python wrapper */
-static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
@@ -3570,14 +3570,14 @@ static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_1__cinit__(PyObje
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, __pyx_nargs); return -1;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_VARARGS(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
+static int __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
   int __pyx_v_buf_size;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -3588,7 +3588,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":80
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":80
  * 
  *     def __cinit__(self):
  *         cdef int buf_size = 1024 * 1024             # <<<<<<<<<<<<<<
@@ -3597,7 +3597,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
  */
   __pyx_v_buf_size = 0x100000;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":81
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":81
  *     def __cinit__(self):
  *         cdef int buf_size = 1024 * 1024
  *         self.pk.buf = <char*> malloc(buf_size)             # <<<<<<<<<<<<<<
@@ -3606,7 +3606,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
  */
   __pyx_v_self->pk.buf = ((char *)malloc(__pyx_v_buf_size));
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":82
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":82
  *         cdef int buf_size = 1024 * 1024
  *         self.pk.buf = <char*> malloc(buf_size)
  *         if self.pk.buf == NULL:             # <<<<<<<<<<<<<<
@@ -3616,7 +3616,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
   __pyx_t_1 = (__pyx_v_self->pk.buf == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":83
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":83
  *         self.pk.buf = <char*> malloc(buf_size)
  *         if self.pk.buf == NULL:
  *             raise MemoryError("Unable to allocate internal buffer.")             # <<<<<<<<<<<<<<
@@ -3629,7 +3629,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 83, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":82
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":82
  *         cdef int buf_size = 1024 * 1024
  *         self.pk.buf = <char*> malloc(buf_size)
  *         if self.pk.buf == NULL:             # <<<<<<<<<<<<<<
@@ -3638,7 +3638,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":84
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":84
  *         if self.pk.buf == NULL:
  *             raise MemoryError("Unable to allocate internal buffer.")
  *         self.pk.buf_size = buf_size             # <<<<<<<<<<<<<<
@@ -3647,7 +3647,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
  */
   __pyx_v_self->pk.buf_size = __pyx_v_buf_size;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":85
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":85
  *             raise MemoryError("Unable to allocate internal buffer.")
  *         self.pk.buf_size = buf_size
  *         self.pk.length = 0             # <<<<<<<<<<<<<<
@@ -3656,7 +3656,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
  */
   __pyx_v_self->pk.length = 0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":79
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":79
  *     cdef bint autoreset
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -3669,14 +3669,14 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":87
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":87
  *         self.pk.length = 0
  * 
  *     def __init__(self, default=None, encoding='utf-8',             # <<<<<<<<<<<<<<
@@ -3685,12 +3685,12 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer___cinit__(struct 
  */
 
 /* Python wrapper */
-static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__, "\n        ");
+static int __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__, "\n        ");
 #if CYTHON_UPDATE_DESCRIPTOR_DOC
-struct wrapperbase __pyx_wrapperbase_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__;
+struct wrapperbase __pyx_wrapperbase_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__;
 #endif
-static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_default = 0;
   PyObject *__pyx_v_encoding = 0;
   PyObject *__pyx_v_unicode_errors = 0;
@@ -3718,7 +3718,7 @@ static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_3__init__(PyObjec
     values[1] = __Pyx_Arg_NewRef_VARARGS(((PyObject *)__pyx_kp_s_utf_8));
     values[2] = __Pyx_Arg_NewRef_VARARGS(((PyObject *)__pyx_n_s_strict));
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":88
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":88
  * 
  *     def __init__(self, default=None, encoding='utf-8',
  *                  unicode_errors='strict', use_single_float=False,             # <<<<<<<<<<<<<<
@@ -3837,13 +3837,13 @@ static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_3__init__(PyObjec
       __Pyx_Arg_XDECREF_VARARGS(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_default, __pyx_v_encoding, __pyx_v_unicode_errors, __pyx_v_use_single_float, __pyx_v_autoreset, __pyx_v_use_bin_type);
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_default, __pyx_v_encoding, __pyx_v_unicode_errors, __pyx_v_use_single_float, __pyx_v_autoreset, __pyx_v_use_bin_type);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":87
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":87
  *         self.pk.length = 0
  * 
  *     def __init__(self, default=None, encoding='utf-8',             # <<<<<<<<<<<<<<
@@ -3862,7 +3862,7 @@ static int __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_3__init__(PyObjec
   return __pyx_r;
 }
 
-static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_default, PyObject *__pyx_v_encoding, PyObject *__pyx_v_unicode_errors, PyObject *__pyx_v_use_single_float, int __pyx_v_autoreset, int __pyx_v_use_bin_type) {
+static int __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_default, PyObject *__pyx_v_encoding, PyObject *__pyx_v_unicode_errors, PyObject *__pyx_v_use_single_float, int __pyx_v_autoreset, int __pyx_v_use_bin_type) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3876,7 +3876,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":92
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":92
  *         """
  *         """
  *         self.use_float = use_single_float             # <<<<<<<<<<<<<<
@@ -3892,7 +3892,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
   __pyx_v_self->use_float = ((PyBoolObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":93
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":93
  *         """
  *         self.use_float = use_single_float
  *         self.autoreset = autoreset             # <<<<<<<<<<<<<<
@@ -3901,7 +3901,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
  */
   __pyx_v_self->autoreset = __pyx_v_autoreset;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":94
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":94
  *         self.use_float = use_single_float
  *         self.autoreset = autoreset
  *         self.pk.use_bin_type = use_bin_type             # <<<<<<<<<<<<<<
@@ -3910,7 +3910,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
  */
   __pyx_v_self->pk.use_bin_type = __pyx_v_use_bin_type;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":95
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":95
  *         self.autoreset = autoreset
  *         self.pk.use_bin_type = use_bin_type
  *         if default is not None:             # <<<<<<<<<<<<<<
@@ -3920,7 +3920,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
   __pyx_t_2 = (__pyx_v_default != Py_None);
   if (__pyx_t_2) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":96
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":96
  *         self.pk.use_bin_type = use_bin_type
  *         if default is not None:
  *             if not PyCallable_Check(default):             # <<<<<<<<<<<<<<
@@ -3930,7 +3930,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
     __pyx_t_2 = (!PyCallable_Check(__pyx_v_default));
     if (unlikely(__pyx_t_2)) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":97
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":97
  *         if default is not None:
  *             if not PyCallable_Check(default):
  *                 raise TypeError("default must be a callable.")             # <<<<<<<<<<<<<<
@@ -3943,7 +3943,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __PYX_ERR(0, 97, __pyx_L1_error)
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":96
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":96
  *         self.pk.use_bin_type = use_bin_type
  *         if default is not None:
  *             if not PyCallable_Check(default):             # <<<<<<<<<<<<<<
@@ -3952,7 +3952,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
  */
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":95
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":95
  *         self.autoreset = autoreset
  *         self.pk.use_bin_type = use_bin_type
  *         if default is not None:             # <<<<<<<<<<<<<<
@@ -3961,7 +3961,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":98
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":98
  *             if not PyCallable_Check(default):
  *                 raise TypeError("default must be a callable.")
  *         self._default = default             # <<<<<<<<<<<<<<
@@ -3974,7 +3974,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
   __Pyx_DECREF(__pyx_v_self->_default);
   __pyx_v_self->_default = __pyx_v_default;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":99
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":99
  *                 raise TypeError("default must be a callable.")
  *         self._default = default
  *         if encoding is None:             # <<<<<<<<<<<<<<
@@ -3984,7 +3984,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
   __pyx_t_2 = (__pyx_v_encoding == Py_None);
   if (__pyx_t_2) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":100
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":100
  *         self._default = default
  *         if encoding is None:
  *             self.encoding = NULL             # <<<<<<<<<<<<<<
@@ -3993,7 +3993,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
  */
     __pyx_v_self->encoding = NULL;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":101
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":101
  *         if encoding is None:
  *             self.encoding = NULL
  *             self.unicode_errors = NULL             # <<<<<<<<<<<<<<
@@ -4002,7 +4002,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
  */
     __pyx_v_self->unicode_errors = NULL;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":99
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":99
  *                 raise TypeError("default must be a callable.")
  *         self._default = default
  *         if encoding is None:             # <<<<<<<<<<<<<<
@@ -4012,7 +4012,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
     goto __pyx_L5;
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":103
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":103
  *             self.unicode_errors = NULL
  *         else:
  *             if isinstance(encoding, unicode):             # <<<<<<<<<<<<<<
@@ -4023,7 +4023,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
     __pyx_t_2 = PyUnicode_Check(__pyx_v_encoding); 
     if (__pyx_t_2) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":104
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":104
  *         else:
  *             if isinstance(encoding, unicode):
  *                 self._bencoding = encoding.encode('ascii')             # <<<<<<<<<<<<<<
@@ -4060,7 +4060,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
       __pyx_v_self->_bencoding = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":103
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":103
  *             self.unicode_errors = NULL
  *         else:
  *             if isinstance(encoding, unicode):             # <<<<<<<<<<<<<<
@@ -4070,7 +4070,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":106
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":106
  *                 self._bencoding = encoding.encode('ascii')
  *             else:
  *                 self._bencoding = encoding             # <<<<<<<<<<<<<<
@@ -4086,7 +4086,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
     }
     __pyx_L6:;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":107
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":107
  *             else:
  *                 self._bencoding = encoding
  *             self.encoding = PyBytes_AsString(self._bencoding)             # <<<<<<<<<<<<<<
@@ -4099,7 +4099,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
     __pyx_v_self->encoding = __pyx_t_6;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":108
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":108
  *                 self._bencoding = encoding
  *             self.encoding = PyBytes_AsString(self._bencoding)
  *             if isinstance(unicode_errors, unicode):             # <<<<<<<<<<<<<<
@@ -4109,7 +4109,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
     __pyx_t_2 = PyUnicode_Check(__pyx_v_unicode_errors); 
     if (__pyx_t_2) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":109
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":109
  *             self.encoding = PyBytes_AsString(self._bencoding)
  *             if isinstance(unicode_errors, unicode):
  *                 self._berrors = unicode_errors.encode('ascii')             # <<<<<<<<<<<<<<
@@ -4146,7 +4146,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
       __pyx_v_self->_berrors = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":108
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":108
  *                 self._bencoding = encoding
  *             self.encoding = PyBytes_AsString(self._bencoding)
  *             if isinstance(unicode_errors, unicode):             # <<<<<<<<<<<<<<
@@ -4156,7 +4156,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
       goto __pyx_L7;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":111
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":111
  *                 self._berrors = unicode_errors.encode('ascii')
  *             else:
  *                 self._berrors = unicode_errors             # <<<<<<<<<<<<<<
@@ -4172,7 +4172,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
     }
     __pyx_L7:;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":112
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":112
  *             else:
  *                 self._berrors = unicode_errors
  *             self.unicode_errors = PyBytes_AsString(self._berrors)             # <<<<<<<<<<<<<<
@@ -4187,7 +4187,7 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
   }
   __pyx_L5:;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":87
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":87
  *         self.pk.length = 0
  * 
  *     def __init__(self, default=None, encoding='utf-8',             # <<<<<<<<<<<<<<
@@ -4202,14 +4202,14 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":114
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":114
  *             self.unicode_errors = PyBytes_AsString(self._berrors)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -4218,21 +4218,21 @@ static int __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__(struct 
  */
 
 /* Python wrapper */
-static void __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_5__dealloc__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
+  __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
+static void __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":115
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":115
  * 
  *     def __dealloc__(self):
  *         free(self.pk.buf);             # <<<<<<<<<<<<<<
@@ -4241,7 +4241,7 @@ static void __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(str
  */
   free(__pyx_v_self->pk.buf);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":114
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":114
  *             self.unicode_errors = PyBytes_AsString(self._berrors)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -4252,7 +4252,7 @@ static void __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(str
   /* function exit code */
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":117
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":117
  *         free(self.pk.buf);
  * 
  *     cdef int _pack(self, object o,             # <<<<<<<<<<<<<<
@@ -4260,7 +4260,7 @@ static void __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_4__dealloc__(str
  *         cdef long long llval
  */
 
-static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_o, struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args) {
+static int __pyx_f_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_o, struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args) {
   int __pyx_v_nest_limit = __pyx_k__3;
   PY_LONG_LONG __pyx_v_llval;
   unsigned PY_LONG_LONG __pyx_v_ullval;
@@ -4291,7 +4291,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
   Py_ssize_t __pyx_t_13;
   int __pyx_t_14;
   int __pyx_t_15;
-  struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack __pyx_t_16;
+  struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack __pyx_t_16;
   int __pyx_t_17;
   PyObject *(*__pyx_t_18)(PyObject *);
   int __pyx_lineno = 0;
@@ -4305,7 +4305,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
   }
   __Pyx_INCREF(__pyx_v_o);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":128
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":128
  *         cdef dict d
  *         cdef size_t L
  *         cdef int default_used = 0             # <<<<<<<<<<<<<<
@@ -4314,7 +4314,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
   __pyx_v_default_used = 0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":130
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":130
  *         cdef int default_used = 0
  * 
  *         if nest_limit < 0:             # <<<<<<<<<<<<<<
@@ -4324,7 +4324,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
   __pyx_t_1 = (__pyx_v_nest_limit < 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":131
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":131
  * 
  *         if nest_limit < 0:
  *             raise PackValueError("recursion limit exceeded.")             # <<<<<<<<<<<<<<
@@ -4359,7 +4359,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 131, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":130
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":130
  *         cdef int default_used = 0
  * 
  *         if nest_limit < 0:             # <<<<<<<<<<<<<<
@@ -4368,7 +4368,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":133
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":133
  *             raise PackValueError("recursion limit exceeded.")
  * 
  *         while True:             # <<<<<<<<<<<<<<
@@ -4377,7 +4377,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
   while (1) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":134
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":134
  * 
  *         while True:
  *             if o is None:             # <<<<<<<<<<<<<<
@@ -4387,7 +4387,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = (__pyx_v_o == Py_None);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":135
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":135
  *         while True:
  *             if o is None:
  *                 ret = msgpack_pack_nil(&self.pk)             # <<<<<<<<<<<<<<
@@ -4396,7 +4396,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_nil((&__pyx_v_self->pk));
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":134
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":134
  * 
  *         while True:
  *             if o is None:             # <<<<<<<<<<<<<<
@@ -4406,7 +4406,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":136
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":136
  *             if o is None:
  *                 ret = msgpack_pack_nil(&self.pk)
  *             elif isinstance(o, bool):             # <<<<<<<<<<<<<<
@@ -4416,7 +4416,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = __Pyx_TypeCheck(__pyx_v_o, __pyx_ptype_7cpython_4bool_bool); 
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":137
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":137
  *                 ret = msgpack_pack_nil(&self.pk)
  *             elif isinstance(o, bool):
  *                 if o:             # <<<<<<<<<<<<<<
@@ -4426,7 +4426,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_o); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 137, __pyx_L1_error)
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":138
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":138
  *             elif isinstance(o, bool):
  *                 if o:
  *                     ret = msgpack_pack_true(&self.pk)             # <<<<<<<<<<<<<<
@@ -4435,7 +4435,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
         __pyx_v_ret = msgpack_pack_true((&__pyx_v_self->pk));
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":137
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":137
  *                 ret = msgpack_pack_nil(&self.pk)
  *             elif isinstance(o, bool):
  *                 if o:             # <<<<<<<<<<<<<<
@@ -4445,7 +4445,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         goto __pyx_L7;
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":140
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":140
  *                     ret = msgpack_pack_true(&self.pk)
  *                 else:
  *                     ret = msgpack_pack_false(&self.pk)             # <<<<<<<<<<<<<<
@@ -4457,7 +4457,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       }
       __pyx_L7:;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":136
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":136
  *             if o is None:
  *                 ret = msgpack_pack_nil(&self.pk)
  *             elif isinstance(o, bool):             # <<<<<<<<<<<<<<
@@ -4467,7 +4467,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":141
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":141
  *                 else:
  *                     ret = msgpack_pack_false(&self.pk)
  *             elif PyLong_Check(o):             # <<<<<<<<<<<<<<
@@ -4477,7 +4477,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = PyLong_Check(__pyx_v_o);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":144
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":144
  *                 # PyInt_Check(long) is True for Python 3.
  *                 # Sow we should test long before int.
  *                 if o > 0:             # <<<<<<<<<<<<<<
@@ -4489,7 +4489,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":145
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":145
  *                 # Sow we should test long before int.
  *                 if o > 0:
  *                     ullval = o             # <<<<<<<<<<<<<<
@@ -4499,7 +4499,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __pyx_t_6 = __Pyx_PyInt_As_unsigned_PY_LONG_LONG(__pyx_v_o); if (unlikely((__pyx_t_6 == (unsigned PY_LONG_LONG)-1) && PyErr_Occurred())) __PYX_ERR(0, 145, __pyx_L1_error)
         __pyx_v_ullval = __pyx_t_6;
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":146
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":146
  *                 if o > 0:
  *                     ullval = o
  *                     ret = msgpack_pack_unsigned_long_long(&self.pk, ullval)             # <<<<<<<<<<<<<<
@@ -4508,7 +4508,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
         __pyx_v_ret = msgpack_pack_unsigned_long_long((&__pyx_v_self->pk), __pyx_v_ullval);
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":144
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":144
  *                 # PyInt_Check(long) is True for Python 3.
  *                 # Sow we should test long before int.
  *                 if o > 0:             # <<<<<<<<<<<<<<
@@ -4518,7 +4518,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         goto __pyx_L8;
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":148
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":148
  *                     ret = msgpack_pack_unsigned_long_long(&self.pk, ullval)
  *                 else:
  *                     llval = o             # <<<<<<<<<<<<<<
@@ -4529,7 +4529,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __pyx_t_7 = __Pyx_PyInt_As_PY_LONG_LONG(__pyx_v_o); if (unlikely((__pyx_t_7 == (PY_LONG_LONG)-1) && PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L1_error)
         __pyx_v_llval = __pyx_t_7;
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":149
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":149
  *                 else:
  *                     llval = o
  *                     ret = msgpack_pack_long_long(&self.pk, llval)             # <<<<<<<<<<<<<<
@@ -4540,7 +4540,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       }
       __pyx_L8:;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":141
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":141
  *                 else:
  *                     ret = msgpack_pack_false(&self.pk)
  *             elif PyLong_Check(o):             # <<<<<<<<<<<<<<
@@ -4550,7 +4550,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":150
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":150
  *                     llval = o
  *                     ret = msgpack_pack_long_long(&self.pk, llval)
  *             elif PyInt_Check(o):             # <<<<<<<<<<<<<<
@@ -4560,7 +4560,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = PyInt_Check(__pyx_v_o);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":151
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":151
  *                     ret = msgpack_pack_long_long(&self.pk, llval)
  *             elif PyInt_Check(o):
  *                 longval = o             # <<<<<<<<<<<<<<
@@ -4570,7 +4570,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_8 = __Pyx_PyInt_As_long(__pyx_v_o); if (unlikely((__pyx_t_8 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 151, __pyx_L1_error)
       __pyx_v_longval = __pyx_t_8;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":152
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":152
  *             elif PyInt_Check(o):
  *                 longval = o
  *                 ret = msgpack_pack_long(&self.pk, longval)             # <<<<<<<<<<<<<<
@@ -4579,7 +4579,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_long((&__pyx_v_self->pk), __pyx_v_longval);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":150
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":150
  *                     llval = o
  *                     ret = msgpack_pack_long_long(&self.pk, llval)
  *             elif PyInt_Check(o):             # <<<<<<<<<<<<<<
@@ -4589,7 +4589,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":153
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":153
  *                 longval = o
  *                 ret = msgpack_pack_long(&self.pk, longval)
  *             elif PyFloat_Check(o):             # <<<<<<<<<<<<<<
@@ -4599,7 +4599,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = PyFloat_Check(__pyx_v_o);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":154
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":154
  *                 ret = msgpack_pack_long(&self.pk, longval)
  *             elif PyFloat_Check(o):
  *                 if self.use_float:             # <<<<<<<<<<<<<<
@@ -4609,7 +4609,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_self->use_float)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 154, __pyx_L1_error)
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":155
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":155
  *             elif PyFloat_Check(o):
  *                 if self.use_float:
  *                     fval = o             # <<<<<<<<<<<<<<
@@ -4619,7 +4619,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __pyx_t_9 = __pyx_PyFloat_AsFloat(__pyx_v_o); if (unlikely((__pyx_t_9 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 155, __pyx_L1_error)
         __pyx_v_fval = __pyx_t_9;
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":156
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":156
  *                 if self.use_float:
  *                     fval = o
  *                     ret = msgpack_pack_float(&self.pk, fval)             # <<<<<<<<<<<<<<
@@ -4628,7 +4628,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
         __pyx_v_ret = msgpack_pack_float((&__pyx_v_self->pk), __pyx_v_fval);
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":154
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":154
  *                 ret = msgpack_pack_long(&self.pk, longval)
  *             elif PyFloat_Check(o):
  *                 if self.use_float:             # <<<<<<<<<<<<<<
@@ -4638,7 +4638,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         goto __pyx_L9;
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":158
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":158
  *                     ret = msgpack_pack_float(&self.pk, fval)
  *                 else:
  *                     dval = o             # <<<<<<<<<<<<<<
@@ -4649,7 +4649,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __pyx_t_10 = __pyx_PyFloat_AsDouble(__pyx_v_o); if (unlikely((__pyx_t_10 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L1_error)
         __pyx_v_dval = __pyx_t_10;
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":159
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":159
  *                 else:
  *                     dval = o
  *                     ret = msgpack_pack_double(&self.pk, dval)             # <<<<<<<<<<<<<<
@@ -4660,7 +4660,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       }
       __pyx_L9:;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":153
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":153
  *                 longval = o
  *                 ret = msgpack_pack_long(&self.pk, longval)
  *             elif PyFloat_Check(o):             # <<<<<<<<<<<<<<
@@ -4670,7 +4670,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":160
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":160
  *                     dval = o
  *                     ret = msgpack_pack_double(&self.pk, dval)
  *             elif PyBytes_Check(o):             # <<<<<<<<<<<<<<
@@ -4680,7 +4680,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = PyBytes_Check(__pyx_v_o);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":161
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":161
  *                     ret = msgpack_pack_double(&self.pk, dval)
  *             elif PyBytes_Check(o):
  *                 L = len(o)             # <<<<<<<<<<<<<<
@@ -4690,7 +4690,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_11 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 161, __pyx_L1_error)
       __pyx_v_L = __pyx_t_11;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":162
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":162
  *             elif PyBytes_Check(o):
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -4705,7 +4705,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (unlikely(__pyx_t_1)) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":163
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":163
  *                 L = len(o)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("bytes is too large")             # <<<<<<<<<<<<<<
@@ -4718,7 +4718,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __PYX_ERR(0, 163, __pyx_L1_error)
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":162
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":162
  *             elif PyBytes_Check(o):
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -4727,7 +4727,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":164
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":164
  *                 if L > (2**32) - 1:
  *                     raise ValueError("bytes is too large")
  *                 rawval = o             # <<<<<<<<<<<<<<
@@ -4737,7 +4737,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_12 = __Pyx_PyObject_AsWritableString(__pyx_v_o); if (unlikely((!__pyx_t_12) && PyErr_Occurred())) __PYX_ERR(0, 164, __pyx_L1_error)
       __pyx_v_rawval = __pyx_t_12;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":165
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":165
  *                     raise ValueError("bytes is too large")
  *                 rawval = o
  *                 ret = msgpack_pack_bin(&self.pk, L)             # <<<<<<<<<<<<<<
@@ -4746,7 +4746,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_bin((&__pyx_v_self->pk), __pyx_v_L);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":166
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":166
  *                 rawval = o
  *                 ret = msgpack_pack_bin(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -4756,7 +4756,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = (__pyx_v_ret == 0);
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":167
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":167
  *                 ret = msgpack_pack_bin(&self.pk, L)
  *                 if ret == 0:
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, L)             # <<<<<<<<<<<<<<
@@ -4765,7 +4765,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
         __pyx_v_ret = msgpack_pack_raw_body((&__pyx_v_self->pk), __pyx_v_rawval, __pyx_v_L);
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":166
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":166
  *                 rawval = o
  *                 ret = msgpack_pack_bin(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -4774,7 +4774,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":160
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":160
  *                     dval = o
  *                     ret = msgpack_pack_double(&self.pk, dval)
  *             elif PyBytes_Check(o):             # <<<<<<<<<<<<<<
@@ -4784,7 +4784,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":168
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":168
  *                 if ret == 0:
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, L)
  *             elif PyUnicode_Check(o):             # <<<<<<<<<<<<<<
@@ -4794,7 +4794,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = PyUnicode_Check(__pyx_v_o);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":169
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":169
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, L)
  *             elif PyUnicode_Check(o):
  *                 if not self.encoding:             # <<<<<<<<<<<<<<
@@ -4804,7 +4804,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = (!(__pyx_v_self->encoding != 0));
       if (unlikely(__pyx_t_1)) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":170
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":170
  *             elif PyUnicode_Check(o):
  *                 if not self.encoding:
  *                     raise TypeError("Can't encode unicode string: "             # <<<<<<<<<<<<<<
@@ -4817,7 +4817,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __PYX_ERR(0, 170, __pyx_L1_error)
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":169
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":169
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, L)
  *             elif PyUnicode_Check(o):
  *                 if not self.encoding:             # <<<<<<<<<<<<<<
@@ -4826,7 +4826,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":172
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":172
  *                     raise TypeError("Can't encode unicode string: "
  *                                     "no encoding is specified")
  *                 o = PyUnicode_AsEncodedString(o, self.encoding,             # <<<<<<<<<<<<<<
@@ -4838,7 +4838,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF_SET(__pyx_v_o, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":174
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":174
  *                 o = PyUnicode_AsEncodedString(o, self.encoding,
  *                                               self.unicode_errors)
  *                 L = len(o)             # <<<<<<<<<<<<<<
@@ -4848,7 +4848,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_11 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 174, __pyx_L1_error)
       __pyx_v_L = __pyx_t_11;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":175
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":175
  *                                               self.unicode_errors)
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -4863,7 +4863,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (unlikely(__pyx_t_1)) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":176
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":176
  *                 L = len(o)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("dict is too large")             # <<<<<<<<<<<<<<
@@ -4876,7 +4876,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __PYX_ERR(0, 176, __pyx_L1_error)
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":175
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":175
  *                                               self.unicode_errors)
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -4885,7 +4885,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":177
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":177
  *                 if L > (2**32) - 1:
  *                     raise ValueError("dict is too large")
  *                 rawval = o             # <<<<<<<<<<<<<<
@@ -4895,7 +4895,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_12 = __Pyx_PyObject_AsWritableString(__pyx_v_o); if (unlikely((!__pyx_t_12) && PyErr_Occurred())) __PYX_ERR(0, 177, __pyx_L1_error)
       __pyx_v_rawval = __pyx_t_12;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":178
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":178
  *                     raise ValueError("dict is too large")
  *                 rawval = o
  *                 ret = msgpack_pack_raw(&self.pk, len(o))             # <<<<<<<<<<<<<<
@@ -4905,7 +4905,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_11 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 178, __pyx_L1_error)
       __pyx_v_ret = msgpack_pack_raw((&__pyx_v_self->pk), __pyx_t_11);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":179
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":179
  *                 rawval = o
  *                 ret = msgpack_pack_raw(&self.pk, len(o))
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -4915,7 +4915,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = (__pyx_v_ret == 0);
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":180
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":180
  *                 ret = msgpack_pack_raw(&self.pk, len(o))
  *                 if ret == 0:
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, len(o))             # <<<<<<<<<<<<<<
@@ -4925,7 +4925,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __pyx_t_11 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 180, __pyx_L1_error)
         __pyx_v_ret = msgpack_pack_raw_body((&__pyx_v_self->pk), __pyx_v_rawval, __pyx_t_11);
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":179
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":179
  *                 rawval = o
  *                 ret = msgpack_pack_raw(&self.pk, len(o))
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -4934,7 +4934,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":168
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":168
  *                 if ret == 0:
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, L)
  *             elif PyUnicode_Check(o):             # <<<<<<<<<<<<<<
@@ -4944,7 +4944,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":181
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":181
  *                 if ret == 0:
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, len(o))
  *             elif PyDict_CheckExact(o):             # <<<<<<<<<<<<<<
@@ -4954,7 +4954,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = PyDict_CheckExact(__pyx_v_o);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":182
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":182
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, len(o))
  *             elif PyDict_CheckExact(o):
  *                 d = <dict>o             # <<<<<<<<<<<<<<
@@ -4966,7 +4966,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_v_d = ((PyObject*)__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":183
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":183
  *             elif PyDict_CheckExact(o):
  *                 d = <dict>o
  *                 L = len(d)             # <<<<<<<<<<<<<<
@@ -4980,7 +4980,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_11 = PyDict_Size(__pyx_v_d); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 183, __pyx_L1_error)
       __pyx_v_L = __pyx_t_11;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":184
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":184
  *                 d = <dict>o
  *                 L = len(d)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -4995,7 +4995,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (unlikely(__pyx_t_1)) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":185
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":185
  *                 L = len(d)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("dict is too large")             # <<<<<<<<<<<<<<
@@ -5008,7 +5008,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __PYX_ERR(0, 185, __pyx_L1_error)
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":184
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":184
  *                 d = <dict>o
  *                 L = len(d)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -5017,7 +5017,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":186
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":186
  *                 if L > (2**32) - 1:
  *                     raise ValueError("dict is too large")
  *                 ret = msgpack_pack_map(&self.pk, L)             # <<<<<<<<<<<<<<
@@ -5026,7 +5026,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_map((&__pyx_v_self->pk), __pyx_v_L);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":187
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":187
  *                     raise ValueError("dict is too large")
  *                 ret = msgpack_pack_map(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -5036,7 +5036,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = (__pyx_v_ret == 0);
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":188
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":188
  *                 ret = msgpack_pack_map(&self.pk, L)
  *                 if ret == 0:
  *                     for k, v in d.iteritems():             # <<<<<<<<<<<<<<
@@ -5064,7 +5064,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_4);
           __pyx_t_4 = 0;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":189
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":189
  *                 if ret == 0:
  *                     for k, v in d.iteritems():
  *                         ret = self._pack(k, nest_limit - 1)             # <<<<<<<<<<<<<<
@@ -5073,10 +5073,10 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
           __pyx_t_16.__pyx_n = 1;
           __pyx_t_16.nest_limit = (__pyx_v_nest_limit - 1);
-          __pyx_t_15 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_k, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 189, __pyx_L1_error)
+          __pyx_t_15 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_k, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 189, __pyx_L1_error)
           __pyx_v_ret = __pyx_t_15;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":190
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":190
  *                     for k, v in d.iteritems():
  *                         ret = self._pack(k, nest_limit - 1)
  *                         if ret != 0: break             # <<<<<<<<<<<<<<
@@ -5088,7 +5088,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
             goto __pyx_L18_break;
           }
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":191
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":191
  *                         ret = self._pack(k, nest_limit - 1)
  *                         if ret != 0: break
  *                         ret = self._pack(v, nest_limit - 1)             # <<<<<<<<<<<<<<
@@ -5097,10 +5097,10 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
           __pyx_t_16.__pyx_n = 1;
           __pyx_t_16.nest_limit = (__pyx_v_nest_limit - 1);
-          __pyx_t_15 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 191, __pyx_L1_error)
+          __pyx_t_15 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 191, __pyx_L1_error)
           __pyx_v_ret = __pyx_t_15;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":192
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":192
  *                         if ret != 0: break
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break             # <<<<<<<<<<<<<<
@@ -5115,7 +5115,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __pyx_L18_break:;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":187
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":187
  *                     raise ValueError("dict is too large")
  *                 ret = msgpack_pack_map(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -5124,7 +5124,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":181
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":181
  *                 if ret == 0:
  *                     ret = msgpack_pack_raw_body(&self.pk, rawval, len(o))
  *             elif PyDict_CheckExact(o):             # <<<<<<<<<<<<<<
@@ -5134,7 +5134,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":193
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":193
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break
  *             elif PyDict_Check(o):             # <<<<<<<<<<<<<<
@@ -5144,7 +5144,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_t_1 = PyDict_Check(__pyx_v_o);
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":194
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":194
  *                         if ret != 0: break
  *             elif PyDict_Check(o):
  *                 L = len(o)             # <<<<<<<<<<<<<<
@@ -5154,7 +5154,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_13 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_13 == ((Py_ssize_t)-1))) __PYX_ERR(0, 194, __pyx_L1_error)
       __pyx_v_L = __pyx_t_13;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":195
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":195
  *             elif PyDict_Check(o):
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -5169,7 +5169,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (unlikely(__pyx_t_1)) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":196
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":196
  *                 L = len(o)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("dict is too large")             # <<<<<<<<<<<<<<
@@ -5182,7 +5182,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __PYX_ERR(0, 196, __pyx_L1_error)
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":195
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":195
  *             elif PyDict_Check(o):
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -5191,7 +5191,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":197
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":197
  *                 if L > (2**32) - 1:
  *                     raise ValueError("dict is too large")
  *                 ret = msgpack_pack_map(&self.pk, L)             # <<<<<<<<<<<<<<
@@ -5200,7 +5200,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_map((&__pyx_v_self->pk), __pyx_v_L);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":198
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":198
  *                     raise ValueError("dict is too large")
  *                 ret = msgpack_pack_map(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -5210,7 +5210,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = (__pyx_v_ret == 0);
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":199
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":199
  *                 ret = msgpack_pack_map(&self.pk, L)
  *                 if ret == 0:
  *                     for k, v in o.items():             # <<<<<<<<<<<<<<
@@ -5238,7 +5238,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_2);
           __pyx_t_2 = 0;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":200
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":200
  *                 if ret == 0:
  *                     for k, v in o.items():
  *                         ret = self._pack(k, nest_limit - 1)             # <<<<<<<<<<<<<<
@@ -5247,10 +5247,10 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
           __pyx_t_16.__pyx_n = 1;
           __pyx_t_16.nest_limit = (__pyx_v_nest_limit - 1);
-          __pyx_t_15 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_k, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 200, __pyx_L1_error)
+          __pyx_t_15 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_k, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 200, __pyx_L1_error)
           __pyx_v_ret = __pyx_t_15;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":201
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":201
  *                     for k, v in o.items():
  *                         ret = self._pack(k, nest_limit - 1)
  *                         if ret != 0: break             # <<<<<<<<<<<<<<
@@ -5262,7 +5262,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
             goto __pyx_L24_break;
           }
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":202
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":202
  *                         ret = self._pack(k, nest_limit - 1)
  *                         if ret != 0: break
  *                         ret = self._pack(v, nest_limit - 1)             # <<<<<<<<<<<<<<
@@ -5271,10 +5271,10 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
           __pyx_t_16.__pyx_n = 1;
           __pyx_t_16.nest_limit = (__pyx_v_nest_limit - 1);
-          __pyx_t_15 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 202, __pyx_L1_error)
+          __pyx_t_15 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, &__pyx_t_16); if (unlikely(__pyx_t_15 == ((int)-1))) __PYX_ERR(0, 202, __pyx_L1_error)
           __pyx_v_ret = __pyx_t_15;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":203
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":203
  *                         if ret != 0: break
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break             # <<<<<<<<<<<<<<
@@ -5289,7 +5289,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __pyx_L24_break:;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":198
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":198
  *                     raise ValueError("dict is too large")
  *                 ret = msgpack_pack_map(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -5298,7 +5298,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":193
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":193
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break
  *             elif PyDict_Check(o):             # <<<<<<<<<<<<<<
@@ -5308,7 +5308,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":204
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":204
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break
  *             elif isinstance(o, ExtType):             # <<<<<<<<<<<<<<
@@ -5321,7 +5321,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":206
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":206
  *             elif isinstance(o, ExtType):
  *                 # This should be before Tuple because ExtType is namedtuple.
  *                 longval = o.code             # <<<<<<<<<<<<<<
@@ -5334,7 +5334,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_v_longval = __pyx_t_8;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":207
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":207
  *                 # This should be before Tuple because ExtType is namedtuple.
  *                 longval = o.code
  *                 rawval = o.data             # <<<<<<<<<<<<<<
@@ -5347,7 +5347,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_v_rawval = __pyx_t_12;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":208
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":208
  *                 longval = o.code
  *                 rawval = o.data
  *                 L = len(o.data)             # <<<<<<<<<<<<<<
@@ -5360,7 +5360,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_v_L = __pyx_t_11;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":209
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":209
  *                 rawval = o.data
  *                 L = len(o.data)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -5375,7 +5375,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (unlikely(__pyx_t_1)) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":210
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":210
  *                 L = len(o.data)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("EXT data is too large")             # <<<<<<<<<<<<<<
@@ -5388,7 +5388,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __PYX_ERR(0, 210, __pyx_L1_error)
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":209
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":209
  *                 rawval = o.data
  *                 L = len(o.data)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -5397,7 +5397,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":211
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":211
  *                 if L > (2**32) - 1:
  *                     raise ValueError("EXT data is too large")
  *                 ret = msgpack_pack_ext(&self.pk, longval, L)             # <<<<<<<<<<<<<<
@@ -5406,7 +5406,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_ext((&__pyx_v_self->pk), __pyx_v_longval, __pyx_v_L);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":212
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":212
  *                     raise ValueError("EXT data is too large")
  *                 ret = msgpack_pack_ext(&self.pk, longval, L)
  *                 ret = msgpack_pack_raw_body(&self.pk, rawval, L)             # <<<<<<<<<<<<<<
@@ -5415,7 +5415,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_raw_body((&__pyx_v_self->pk), __pyx_v_rawval, __pyx_v_L);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":204
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":204
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break
  *             elif isinstance(o, ExtType):             # <<<<<<<<<<<<<<
@@ -5425,7 +5425,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":213
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":213
  *                 ret = msgpack_pack_ext(&self.pk, longval, L)
  *                 ret = msgpack_pack_raw_body(&self.pk, rawval, L)
  *             elif PyTuple_Check(o) or PyList_Check(o):             # <<<<<<<<<<<<<<
@@ -5443,7 +5443,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_L28_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":214
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":214
  *                 ret = msgpack_pack_raw_body(&self.pk, rawval, L)
  *             elif PyTuple_Check(o) or PyList_Check(o):
  *                 L = len(o)             # <<<<<<<<<<<<<<
@@ -5453,7 +5453,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_11 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 214, __pyx_L1_error)
       __pyx_v_L = __pyx_t_11;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":215
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":215
  *             elif PyTuple_Check(o) or PyList_Check(o):
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -5468,7 +5468,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (unlikely(__pyx_t_1)) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":216
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":216
  *                 L = len(o)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("list is too large")             # <<<<<<<<<<<<<<
@@ -5481,7 +5481,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __PYX_ERR(0, 216, __pyx_L1_error)
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":215
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":215
  *             elif PyTuple_Check(o) or PyList_Check(o):
  *                 L = len(o)
  *                 if L > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -5490,7 +5490,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":217
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":217
  *                 if L > (2**32) - 1:
  *                     raise ValueError("list is too large")
  *                 ret = msgpack_pack_array(&self.pk, L)             # <<<<<<<<<<<<<<
@@ -5499,7 +5499,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_ret = msgpack_pack_array((&__pyx_v_self->pk), __pyx_v_L);
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":218
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":218
  *                     raise ValueError("list is too large")
  *                 ret = msgpack_pack_array(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -5509,7 +5509,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __pyx_t_1 = (__pyx_v_ret == 0);
       if (__pyx_t_1) {
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":219
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":219
  *                 ret = msgpack_pack_array(&self.pk, L)
  *                 if ret == 0:
  *                     for v in o:             # <<<<<<<<<<<<<<
@@ -5571,7 +5571,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_2);
           __pyx_t_2 = 0;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":220
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":220
  *                 if ret == 0:
  *                     for v in o:
  *                         ret = self._pack(v, nest_limit - 1)             # <<<<<<<<<<<<<<
@@ -5580,10 +5580,10 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
           __pyx_t_16.__pyx_n = 1;
           __pyx_t_16.nest_limit = (__pyx_v_nest_limit - 1);
-          __pyx_t_14 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, &__pyx_t_16); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 220, __pyx_L1_error)
+          __pyx_t_14 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, &__pyx_t_16); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 220, __pyx_L1_error)
           __pyx_v_ret = __pyx_t_14;
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":221
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":221
  *                     for v in o:
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break             # <<<<<<<<<<<<<<
@@ -5595,7 +5595,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
             goto __pyx_L33_break;
           }
 
-          /* "pandas_msgpack/msgpack/_packer.pyx":219
+          /* "isf_pandas_msgpack/msgpack/_packer.pyx":219
  *                 ret = msgpack_pack_array(&self.pk, L)
  *                 if ret == 0:
  *                     for v in o:             # <<<<<<<<<<<<<<
@@ -5610,7 +5610,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
         goto __pyx_L35_for_end;
         __pyx_L35_for_end:;
 
-        /* "pandas_msgpack/msgpack/_packer.pyx":218
+        /* "isf_pandas_msgpack/msgpack/_packer.pyx":218
  *                     raise ValueError("list is too large")
  *                 ret = msgpack_pack_array(&self.pk, L)
  *                 if ret == 0:             # <<<<<<<<<<<<<<
@@ -5619,7 +5619,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":213
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":213
  *                 ret = msgpack_pack_ext(&self.pk, longval, L)
  *                 ret = msgpack_pack_raw_body(&self.pk, rawval, L)
  *             elif PyTuple_Check(o) or PyList_Check(o):             # <<<<<<<<<<<<<<
@@ -5629,7 +5629,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       goto __pyx_L6;
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":222
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":222
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break
  *             elif not default_used and self._default:             # <<<<<<<<<<<<<<
@@ -5647,7 +5647,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_L36_bool_binop_done:;
     if (likely(__pyx_t_1)) {
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":223
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":223
  *                         if ret != 0: break
  *             elif not default_used and self._default:
  *                 o = self._default(o)             # <<<<<<<<<<<<<<
@@ -5680,7 +5680,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
       __Pyx_DECREF_SET(__pyx_v_o, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":224
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":224
  *             elif not default_used and self._default:
  *                 o = self._default(o)
  *                 default_used = 1             # <<<<<<<<<<<<<<
@@ -5689,7 +5689,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       __pyx_v_default_used = 1;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":225
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":225
  *                 o = self._default(o)
  *                 default_used = 1
  *                 continue             # <<<<<<<<<<<<<<
@@ -5698,7 +5698,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
       goto __pyx_L4_continue;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":222
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":222
  *                         ret = self._pack(v, nest_limit - 1)
  *                         if ret != 0: break
  *             elif not default_used and self._default:             # <<<<<<<<<<<<<<
@@ -5707,7 +5707,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  */
     }
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":227
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":227
  *                 continue
  *             else:
  *                 raise TypeError("can't serialize %r" % (o,))             # <<<<<<<<<<<<<<
@@ -5732,7 +5732,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     }
     __pyx_L6:;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":228
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":228
  *             else:
  *                 raise TypeError("can't serialize %r" % (o,))
  *             return ret             # <<<<<<<<<<<<<<
@@ -5744,7 +5744,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
     __pyx_L4_continue:;
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":117
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":117
  *         free(self.pk.buf);
  * 
  *     cdef int _pack(self, object o,             # <<<<<<<<<<<<<<
@@ -5759,7 +5759,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer._pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer._pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_d);
@@ -5770,7 +5770,7 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":230
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":230
  *             return ret
  * 
  *     cpdef pack(self, object obj):             # <<<<<<<<<<<<<<
@@ -5778,14 +5778,14 @@ static int __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack(struct __pyx
  *         ret = self._pack(obj, DEFAULT_RECURSE_LIMIT)
  */
 
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_7pack(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_7pack(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj, int __pyx_skip_dispatch) {
+static PyObject *__pyx_f_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj, int __pyx_skip_dispatch) {
   int __pyx_v_ret;
   PyObject *__pyx_v_buf = NULL;
   PyObject *__pyx_r = NULL;
@@ -5796,7 +5796,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
   PyObject *__pyx_t_4 = NULL;
   unsigned int __pyx_t_5;
   int __pyx_t_6;
-  struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack __pyx_t_7;
+  struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack __pyx_t_7;
   int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -5813,7 +5813,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
       #endif
       __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_pack); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void*) __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_7pack)) {
+      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void*) __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_7pack)) {
         __Pyx_XDECREF(__pyx_r);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
@@ -5856,7 +5856,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
     #endif
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":232
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":232
  *     cpdef pack(self, object obj):
  *         cdef int ret
  *         ret = self._pack(obj, DEFAULT_RECURSE_LIMIT)             # <<<<<<<<<<<<<<
@@ -5864,11 +5864,11 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
  *             raise MemoryError
  */
   __pyx_t_7.__pyx_n = 1;
-  __pyx_t_7.nest_limit = __pyx_v_14pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT;
-  __pyx_t_6 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_obj, &__pyx_t_7); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_7.nest_limit = __pyx_v_18isf_pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT;
+  __pyx_t_6 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_obj, &__pyx_t_7); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 232, __pyx_L1_error)
   __pyx_v_ret = __pyx_t_6;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":233
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":233
  *         cdef int ret
  *         ret = self._pack(obj, DEFAULT_RECURSE_LIMIT)
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -5878,7 +5878,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
   __pyx_t_8 = (__pyx_v_ret == -1L);
   if (unlikely(__pyx_t_8)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":234
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":234
  *         ret = self._pack(obj, DEFAULT_RECURSE_LIMIT)
  *         if ret == -1:
  *             raise MemoryError             # <<<<<<<<<<<<<<
@@ -5887,7 +5887,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
  */
     PyErr_NoMemory(); __PYX_ERR(0, 234, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":233
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":233
  *         cdef int ret
  *         ret = self._pack(obj, DEFAULT_RECURSE_LIMIT)
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -5896,7 +5896,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":235
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":235
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen.             # <<<<<<<<<<<<<<
@@ -5906,7 +5906,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
   __pyx_t_8 = (__pyx_v_ret != 0);
   if (unlikely(__pyx_t_8)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":236
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":236
  *             raise MemoryError
  *         elif ret:  # should not happen.
  *             raise TypeError             # <<<<<<<<<<<<<<
@@ -5916,7 +5916,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
     __Pyx_Raise(__pyx_builtin_TypeError, 0, 0, 0);
     __PYX_ERR(0, 236, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":235
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":235
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen.             # <<<<<<<<<<<<<<
@@ -5925,7 +5925,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":237
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":237
  *         elif ret:  # should not happen.
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -5934,7 +5934,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
  */
   if (__pyx_v_self->autoreset) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":238
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":238
  *             raise TypeError
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)             # <<<<<<<<<<<<<<
@@ -5946,7 +5946,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
     __pyx_v_buf = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":239
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":239
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0             # <<<<<<<<<<<<<<
@@ -5955,7 +5955,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
  */
     __pyx_v_self->pk.length = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":240
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":240
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0
  *             return buf             # <<<<<<<<<<<<<<
@@ -5967,7 +5967,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
     __pyx_r = __pyx_v_buf;
     goto __pyx_L0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":237
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":237
  *         elif ret:  # should not happen.
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -5976,7 +5976,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":230
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":230
  *             return ret
  * 
  *     cpdef pack(self, object obj):             # <<<<<<<<<<<<<<
@@ -5992,7 +5992,7 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_buf);
@@ -6002,16 +6002,16 @@ static PyObject *__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(struct 
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_7pack(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_7pack(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack, "Packer.pack(self, obj)");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_7pack = {"pack", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_7pack, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_7pack(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_6pack, "Packer.pack(self, obj)");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_7pack = {"pack", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_7pack, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_6pack};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_7pack(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6081,11 +6081,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_obj);
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_6pack(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_obj);
 
   /* function exit code */
   {
@@ -6098,7 +6098,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_obj) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6107,7 +6107,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pack", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack(__pyx_v_self, __pyx_v_obj, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_pack(__pyx_v_self, __pyx_v_obj, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6116,7 +6116,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struc
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6124,7 +6124,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struc
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":242
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":242
  *             return buf
  * 
  *     def pack_ext_type(self, typecode, data):             # <<<<<<<<<<<<<<
@@ -6133,16 +6133,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_6pack(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type, "Packer.pack_ext_type(self, typecode, data)");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type = {"pack_ext_type", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type, "Packer.pack_ext_type(self, typecode, data)");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type = {"pack_ext_type", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6227,11 +6227,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_ext_type", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_ext_type", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_typecode, __pyx_v_data);
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_typecode, __pyx_v_data);
 
   /* function exit code */
   {
@@ -6244,7 +6244,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_typecode, PyObject *__pyx_v_data) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_typecode, PyObject *__pyx_v_data) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   char __pyx_t_1;
@@ -6255,7 +6255,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_t
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pack_ext_type", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":243
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":243
  * 
  *     def pack_ext_type(self, typecode, data):
  *         msgpack_pack_ext(&self.pk, typecode, len(data))             # <<<<<<<<<<<<<<
@@ -6266,7 +6266,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_t
   __pyx_t_2 = PyObject_Length(__pyx_v_data); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 243, __pyx_L1_error)
   (void)(msgpack_pack_ext((&__pyx_v_self->pk), __pyx_t_1, __pyx_t_2));
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":244
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":244
  *     def pack_ext_type(self, typecode, data):
  *         msgpack_pack_ext(&self.pk, typecode, len(data))
  *         msgpack_pack_raw_body(&self.pk, data, len(data))             # <<<<<<<<<<<<<<
@@ -6277,7 +6277,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_t
   __pyx_t_2 = PyObject_Length(__pyx_v_data); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 244, __pyx_L1_error)
   (void)(msgpack_pack_raw_body((&__pyx_v_self->pk), __pyx_t_3, __pyx_t_2));
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":242
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":242
  *             return buf
  * 
  *     def pack_ext_type(self, typecode, data):             # <<<<<<<<<<<<<<
@@ -6289,7 +6289,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_t
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_ext_type", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_ext_type", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6297,7 +6297,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_t
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":246
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":246
  *         msgpack_pack_raw_body(&self.pk, data, len(data))
  * 
  *     def pack_array_header(self, size_t size):             # <<<<<<<<<<<<<<
@@ -6306,16 +6306,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_t
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header, "Packer.pack_array_header(self, size_t size)");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header = {"pack_array_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header, "Packer.pack_array_header(self, size_t size)");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header = {"pack_array_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6385,11 +6385,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_array_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_array_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_size);
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_size);
 
   /* function exit code */
   {
@@ -6402,7 +6402,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size) {
   int __pyx_v_ret;
   PyObject *__pyx_v_buf = NULL;
   PyObject *__pyx_r = NULL;
@@ -6415,7 +6415,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pack_array_header", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":247
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":247
  * 
  *     def pack_array_header(self, size_t size):
  *         if size > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -6430,7 +6430,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (unlikely(__pyx_t_3)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":248
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":248
  *     def pack_array_header(self, size_t size):
  *         if size > (2**32) - 1:
  *             raise ValueError             # <<<<<<<<<<<<<<
@@ -6440,7 +6440,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
     __PYX_ERR(0, 248, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":247
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":247
  * 
  *     def pack_array_header(self, size_t size):
  *         if size > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -6449,7 +6449,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":249
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":249
  *         if size > (2**32) - 1:
  *             raise ValueError
  *         cdef int ret = msgpack_pack_array(&self.pk, size)             # <<<<<<<<<<<<<<
@@ -6458,7 +6458,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
   __pyx_v_ret = msgpack_pack_array((&__pyx_v_self->pk), __pyx_v_size);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":250
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":250
  *             raise ValueError
  *         cdef int ret = msgpack_pack_array(&self.pk, size)
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -6468,7 +6468,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
   __pyx_t_3 = (__pyx_v_ret == -1L);
   if (unlikely(__pyx_t_3)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":251
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":251
  *         cdef int ret = msgpack_pack_array(&self.pk, size)
  *         if ret == -1:
  *             raise MemoryError             # <<<<<<<<<<<<<<
@@ -6477,7 +6477,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
     PyErr_NoMemory(); __PYX_ERR(0, 251, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":250
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":250
  *             raise ValueError
  *         cdef int ret = msgpack_pack_array(&self.pk, size)
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -6486,7 +6486,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":252
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":252
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen             # <<<<<<<<<<<<<<
@@ -6496,7 +6496,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
   __pyx_t_3 = (__pyx_v_ret != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":253
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":253
  *             raise MemoryError
  *         elif ret:  # should not happen
  *             raise TypeError             # <<<<<<<<<<<<<<
@@ -6506,7 +6506,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
     __Pyx_Raise(__pyx_builtin_TypeError, 0, 0, 0);
     __PYX_ERR(0, 253, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":252
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":252
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen             # <<<<<<<<<<<<<<
@@ -6515,7 +6515,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":254
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":254
  *         elif ret:  # should not happen
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -6524,7 +6524,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
   if (__pyx_v_self->autoreset) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":255
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":255
  *             raise TypeError
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)             # <<<<<<<<<<<<<<
@@ -6536,7 +6536,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
     __pyx_v_buf = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":256
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":256
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0             # <<<<<<<<<<<<<<
@@ -6545,7 +6545,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
     __pyx_v_self->pk.length = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":257
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":257
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0
  *             return buf             # <<<<<<<<<<<<<<
@@ -6557,7 +6557,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
     __pyx_r = __pyx_v_buf;
     goto __pyx_L0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":254
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":254
  *         elif ret:  # should not happen
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -6566,7 +6566,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":246
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":246
  *         msgpack_pack_raw_body(&self.pk, data, len(data))
  * 
  *     def pack_array_header(self, size_t size):             # <<<<<<<<<<<<<<
@@ -6580,7 +6580,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_array_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_array_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_buf);
@@ -6589,7 +6589,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":259
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":259
  *             return buf
  * 
  *     def pack_map_header(self, size_t size):             # <<<<<<<<<<<<<<
@@ -6598,16 +6598,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_arra
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header, "Packer.pack_map_header(self, size_t size)");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header = {"pack_map_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header, "Packer.pack_map_header(self, size_t size)");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header = {"pack_map_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6677,11 +6677,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_map_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_map_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_size);
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_size);
 
   /* function exit code */
   {
@@ -6694,7 +6694,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, size_t __pyx_v_size) {
   int __pyx_v_ret;
   PyObject *__pyx_v_buf = NULL;
   PyObject *__pyx_r = NULL;
@@ -6707,7 +6707,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pack_map_header", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":260
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":260
  * 
  *     def pack_map_header(self, size_t size):
  *         if size > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -6722,7 +6722,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (unlikely(__pyx_t_3)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":261
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":261
  *     def pack_map_header(self, size_t size):
  *         if size > (2**32) - 1:
  *             raise ValueError             # <<<<<<<<<<<<<<
@@ -6732,7 +6732,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
     __PYX_ERR(0, 261, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":260
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":260
  * 
  *     def pack_map_header(self, size_t size):
  *         if size > (2**32) - 1:             # <<<<<<<<<<<<<<
@@ -6741,7 +6741,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":262
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":262
  *         if size > (2**32) - 1:
  *             raise ValueError
  *         cdef int ret = msgpack_pack_map(&self.pk, size)             # <<<<<<<<<<<<<<
@@ -6750,7 +6750,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
   __pyx_v_ret = msgpack_pack_map((&__pyx_v_self->pk), __pyx_v_size);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":263
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":263
  *             raise ValueError
  *         cdef int ret = msgpack_pack_map(&self.pk, size)
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -6760,7 +6760,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
   __pyx_t_3 = (__pyx_v_ret == -1L);
   if (unlikely(__pyx_t_3)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":264
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":264
  *         cdef int ret = msgpack_pack_map(&self.pk, size)
  *         if ret == -1:
  *             raise MemoryError             # <<<<<<<<<<<<<<
@@ -6769,7 +6769,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
     PyErr_NoMemory(); __PYX_ERR(0, 264, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":263
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":263
  *             raise ValueError
  *         cdef int ret = msgpack_pack_map(&self.pk, size)
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -6778,7 +6778,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":265
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":265
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen             # <<<<<<<<<<<<<<
@@ -6788,7 +6788,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
   __pyx_t_3 = (__pyx_v_ret != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":266
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":266
  *             raise MemoryError
  *         elif ret:  # should not happen
  *             raise TypeError             # <<<<<<<<<<<<<<
@@ -6798,7 +6798,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
     __Pyx_Raise(__pyx_builtin_TypeError, 0, 0, 0);
     __PYX_ERR(0, 266, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":265
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":265
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen             # <<<<<<<<<<<<<<
@@ -6807,7 +6807,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":267
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":267
  *         elif ret:  # should not happen
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -6816,7 +6816,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
   if (__pyx_v_self->autoreset) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":268
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":268
  *             raise TypeError
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)             # <<<<<<<<<<<<<<
@@ -6828,7 +6828,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
     __pyx_v_buf = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":269
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":269
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0             # <<<<<<<<<<<<<<
@@ -6837,7 +6837,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
     __pyx_v_self->pk.length = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":270
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":270
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0
  *             return buf             # <<<<<<<<<<<<<<
@@ -6849,7 +6849,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
     __pyx_r = __pyx_v_buf;
     goto __pyx_L0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":267
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":267
  *         elif ret:  # should not happen
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -6858,7 +6858,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":259
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":259
  *             return buf
  * 
  *     def pack_map_header(self, size_t size):             # <<<<<<<<<<<<<<
@@ -6872,7 +6872,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_map_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_map_header", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_buf);
@@ -6881,7 +6881,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":272
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":272
  *             return buf
  * 
  *     def pack_map_pairs(self, object pairs):             # <<<<<<<<<<<<<<
@@ -6890,16 +6890,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs, "Packer.pack_map_pairs(self, pairs)\n\n        Pack *pairs* as msgpack map type.\n\n        *pairs* should sequence of pair.\n        (`len(pairs)` and `for k, v in pairs:` should be supported.)\n        ");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs = {"pack_map_pairs", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs, "Packer.pack_map_pairs(self, pairs)\n\n        Pack *pairs* as msgpack map type.\n\n        *pairs* should sequence of pair.\n        (`len(pairs)` and `for k, v in pairs:` should be supported.)\n        ");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs = {"pack_map_pairs", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6969,11 +6969,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_map_pairs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_map_pairs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_pairs);
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v_pairs);
 
   /* function exit code */
   {
@@ -6986,7 +6986,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_pairs) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, PyObject *__pyx_v_pairs) {
   int __pyx_v_ret;
   PyObject *__pyx_v_k = NULL;
   PyObject *__pyx_v_v = NULL;
@@ -7008,7 +7008,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pack_map_pairs", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":279
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":279
  *         (`len(pairs)` and `for k, v in pairs:` should be supported.)
  *         """
  *         cdef int ret = msgpack_pack_map(&self.pk, len(pairs))             # <<<<<<<<<<<<<<
@@ -7018,7 +7018,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
   __pyx_t_1 = PyObject_Length(__pyx_v_pairs); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 279, __pyx_L1_error)
   __pyx_v_ret = msgpack_pack_map((&__pyx_v_self->pk), __pyx_t_1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":280
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":280
  *         """
  *         cdef int ret = msgpack_pack_map(&self.pk, len(pairs))
  *         if ret == 0:             # <<<<<<<<<<<<<<
@@ -7028,7 +7028,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
   __pyx_t_2 = (__pyx_v_ret == 0);
   if (__pyx_t_2) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":281
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":281
  *         cdef int ret = msgpack_pack_map(&self.pk, len(pairs))
  *         if ret == 0:
  *             for k, v in pairs:             # <<<<<<<<<<<<<<
@@ -7138,17 +7138,17 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
       __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":282
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":282
  *         if ret == 0:
  *             for k, v in pairs:
  *                 ret = self._pack(k)             # <<<<<<<<<<<<<<
  *                 if ret != 0: break
  *                 ret = self._pack(v)
  */
-      __pyx_t_10 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_k, NULL); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 282, __pyx_L1_error)
+      __pyx_t_10 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_k, NULL); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 282, __pyx_L1_error)
       __pyx_v_ret = __pyx_t_10;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":283
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":283
  *             for k, v in pairs:
  *                 ret = self._pack(k)
  *                 if ret != 0: break             # <<<<<<<<<<<<<<
@@ -7160,17 +7160,17 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
         goto __pyx_L5_break;
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":284
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":284
  *                 ret = self._pack(k)
  *                 if ret != 0: break
  *                 ret = self._pack(v)             # <<<<<<<<<<<<<<
  *                 if ret != 0: break
  *         if ret == -1:
  */
-      __pyx_t_10 = ((struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, NULL); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 284, __pyx_L1_error)
+      __pyx_t_10 = ((struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self->__pyx_vtab)->_pack(__pyx_v_self, __pyx_v_v, NULL); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 284, __pyx_L1_error)
       __pyx_v_ret = __pyx_t_10;
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":285
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":285
  *                 if ret != 0: break
  *                 ret = self._pack(v)
  *                 if ret != 0: break             # <<<<<<<<<<<<<<
@@ -7182,7 +7182,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
         goto __pyx_L5_break;
       }
 
-      /* "pandas_msgpack/msgpack/_packer.pyx":281
+      /* "isf_pandas_msgpack/msgpack/_packer.pyx":281
  *         cdef int ret = msgpack_pack_map(&self.pk, len(pairs))
  *         if ret == 0:
  *             for k, v in pairs:             # <<<<<<<<<<<<<<
@@ -7197,7 +7197,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
     goto __pyx_L10_for_end;
     __pyx_L10_for_end:;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":280
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":280
  *         """
  *         cdef int ret = msgpack_pack_map(&self.pk, len(pairs))
  *         if ret == 0:             # <<<<<<<<<<<<<<
@@ -7206,7 +7206,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":286
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":286
  *                 ret = self._pack(v)
  *                 if ret != 0: break
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -7216,7 +7216,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
   __pyx_t_2 = (__pyx_v_ret == -1L);
   if (unlikely(__pyx_t_2)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":287
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":287
  *                 if ret != 0: break
  *         if ret == -1:
  *             raise MemoryError             # <<<<<<<<<<<<<<
@@ -7225,7 +7225,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
     PyErr_NoMemory(); __PYX_ERR(0, 287, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":286
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":286
  *                 ret = self._pack(v)
  *                 if ret != 0: break
  *         if ret == -1:             # <<<<<<<<<<<<<<
@@ -7234,7 +7234,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":288
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":288
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen             # <<<<<<<<<<<<<<
@@ -7244,7 +7244,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
   __pyx_t_2 = (__pyx_v_ret != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":289
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":289
  *             raise MemoryError
  *         elif ret:  # should not happen
  *             raise TypeError             # <<<<<<<<<<<<<<
@@ -7254,7 +7254,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
     __Pyx_Raise(__pyx_builtin_TypeError, 0, 0, 0);
     __PYX_ERR(0, 289, __pyx_L1_error)
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":288
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":288
  *         if ret == -1:
  *             raise MemoryError
  *         elif ret:  # should not happen             # <<<<<<<<<<<<<<
@@ -7263,7 +7263,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":290
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":290
  *         elif ret:  # should not happen
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -7272,7 +7272,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
   if (__pyx_v_self->autoreset) {
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":291
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":291
  *             raise TypeError
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)             # <<<<<<<<<<<<<<
@@ -7284,7 +7284,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
     __pyx_v_buf = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":292
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":292
  *         if self.autoreset:
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0             # <<<<<<<<<<<<<<
@@ -7293,7 +7293,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
     __pyx_v_self->pk.length = 0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":293
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":293
  *             buf = PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  *             self.pk.length = 0
  *             return buf             # <<<<<<<<<<<<<<
@@ -7305,7 +7305,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
     __pyx_r = __pyx_v_buf;
     goto __pyx_L0;
 
-    /* "pandas_msgpack/msgpack/_packer.pyx":290
+    /* "isf_pandas_msgpack/msgpack/_packer.pyx":290
  *         elif ret:  # should not happen
  *             raise TypeError
  *         if self.autoreset:             # <<<<<<<<<<<<<<
@@ -7314,7 +7314,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
   }
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":272
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":272
  *             return buf
  * 
  *     def pack_map_pairs(self, object pairs):             # <<<<<<<<<<<<<<
@@ -7331,7 +7331,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.pack_map_pairs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.pack_map_pairs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_k);
@@ -7342,7 +7342,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":295
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":295
  *             return buf
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -7351,16 +7351,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_17reset(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_17reset(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset, "Packer.reset(self)\nClear internal buffer.");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_17reset = {"reset", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_17reset, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_17reset(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_16reset, "Packer.reset(self)\nClear internal buffer.");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_17reset = {"reset", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_17reset, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_16reset};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_17reset(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7385,19 +7385,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("reset", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "reset", 0))) return NULL;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_16reset(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_16reset(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("reset", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":297
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":297
  *     def reset(self):
  *         """Clear internal buffer."""
  *         self.pk.length = 0             # <<<<<<<<<<<<<<
@@ -7406,7 +7406,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset(str
  */
   __pyx_v_self->pk.length = 0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":295
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":295
  *             return buf
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -7421,7 +7421,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset(str
   return __pyx_r;
 }
 
-/* "pandas_msgpack/msgpack/_packer.pyx":299
+/* "isf_pandas_msgpack/msgpack/_packer.pyx":299
  *         self.pk.length = 0
  * 
  *     def bytes(self):             # <<<<<<<<<<<<<<
@@ -7430,16 +7430,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_19bytes(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_19bytes(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes, "Packer.bytes(self)\nReturn buffer content.");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_19bytes = {"bytes", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_19bytes, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_19bytes(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_18bytes, "Packer.bytes(self)\nReturn buffer content.");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_19bytes = {"bytes", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_19bytes, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_18bytes};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_19bytes(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7464,14 +7464,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("bytes", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "bytes", 0))) return NULL;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7480,7 +7480,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("bytes", 1);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":301
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":301
  *     def bytes(self):
  *         """Return buffer content."""
  *         return PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)             # <<<<<<<<<<<<<<
@@ -7492,7 +7492,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(str
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":299
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":299
  *         self.pk.length = 0
  * 
  *     def bytes(self):             # <<<<<<<<<<<<<<
@@ -7503,7 +7503,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(str
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.bytes", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.bytes", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7518,16 +7518,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__, "Packer.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__, "Packer.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7552,14 +7552,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("__reduce_cython__", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__reduce_cython__", 0))) return NULL;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -7584,7 +7584,7 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -7599,16 +7599,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__, "Packer.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__};
-static PyObject *__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__, "Packer.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__};
+static PyObject *__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7678,11 +7678,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__(((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__(((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   {
@@ -7695,7 +7695,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -7720,16 +7720,16 @@ static PyObject *__pyx_pf_14pandas_msgpack_7msgpack_7_packer_6Packer_22__setstat
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pandas_msgpack.msgpack._packer.Packer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("isf_pandas_msgpack.msgpack._packer.Packer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_14pandas_msgpack_7msgpack_7_packer_Packer __pyx_vtable_14pandas_msgpack_7msgpack_7_packer_Packer;
+static struct __pyx_vtabstruct_18isf_pandas_msgpack_7msgpack_7_packer_Packer __pyx_vtable_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
 
-static PyObject *__pyx_tp_new_14pandas_msgpack_7msgpack_7_packer_Packer(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *p;
+static PyObject *__pyx_tp_new_18isf_pandas_msgpack_7msgpack_7_packer_Packer(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *p;
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
@@ -7742,25 +7742,25 @@ static PyObject *__pyx_tp_new_14pandas_msgpack_7msgpack_7_packer_Packer(PyTypeOb
   }
   if (unlikely(!o)) return 0;
   #endif
-  p = ((struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)o);
-  p->__pyx_vtab = __pyx_vtabptr_14pandas_msgpack_7msgpack_7_packer_Packer;
+  p = ((struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)o);
+  p->__pyx_vtab = __pyx_vtabptr_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
   new((void*)&(p->pk)) struct msgpack_packer();
   p->_default = Py_None; Py_INCREF(Py_None);
   p->_bencoding = Py_None; Py_INCREF(Py_None);
   p->_berrors = Py_None; Py_INCREF(Py_None);
   p->use_float = ((PyBoolObject *)Py_None); Py_INCREF(Py_None);
-  if (unlikely(__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_14pandas_msgpack_7msgpack_7_packer_Packer(PyObject *o) {
-  struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *p = (struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)o;
+static void __pyx_tp_dealloc_18isf_pandas_msgpack_7msgpack_7_packer_Packer(PyObject *o) {
+  struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *p = (struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14pandas_msgpack_7msgpack_7_packer_Packer) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_18isf_pandas_msgpack_7msgpack_7_packer_Packer) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -7770,7 +7770,7 @@ static void __pyx_tp_dealloc_14pandas_msgpack_7msgpack_7_packer_Packer(PyObject 
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_5__dealloc__(o);
+    __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_5__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
@@ -7789,9 +7789,9 @@ static void __pyx_tp_dealloc_14pandas_msgpack_7msgpack_7_packer_Packer(PyObject 
   #endif
 }
 
-static int __pyx_tp_traverse_14pandas_msgpack_7msgpack_7_packer_Packer(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_18isf_pandas_msgpack_7msgpack_7_packer_Packer(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *p = (struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)o;
+  struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *p = (struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)o;
   if (p->_default) {
     e = (*v)(p->_default, a); if (e) return e;
   }
@@ -7807,9 +7807,9 @@ static int __pyx_tp_traverse_14pandas_msgpack_7msgpack_7_packer_Packer(PyObject 
   return 0;
 }
 
-static int __pyx_tp_clear_14pandas_msgpack_7msgpack_7_packer_Packer(PyObject *o) {
+static int __pyx_tp_clear_18isf_pandas_msgpack_7msgpack_7_packer_Packer(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *p = (struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *)o;
+  struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *p = (struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *)o;
   tmp = ((PyObject*)p->_default);
   p->_default = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -7825,43 +7825,43 @@ static int __pyx_tp_clear_14pandas_msgpack_7msgpack_7_packer_Packer(PyObject *o)
   return 0;
 }
 
-static PyMethodDef __pyx_methods_14pandas_msgpack_7msgpack_7_packer_Packer[] = {
-  {"pack_ext_type", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type},
-  {"pack_array_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header},
-  {"pack_map_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header},
-  {"pack_map_pairs", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs},
-  {"reset", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_17reset, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_16reset},
-  {"bytes", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_19bytes, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_18bytes},
-  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__},
+static PyMethodDef __pyx_methods_18isf_pandas_msgpack_7msgpack_7_packer_Packer[] = {
+  {"pack_ext_type", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_8pack_ext_type},
+  {"pack_array_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_10pack_array_header},
+  {"pack_map_header", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_12pack_map_header},
+  {"pack_map_pairs", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_14pack_map_pairs},
+  {"reset", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_17reset, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_16reset},
+  {"bytes", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_19bytes, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_18bytes},
+  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_20__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_22__setstate_cython__},
   {0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14pandas_msgpack_7msgpack_7_packer_Packer},
+static PyType_Slot __pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_18isf_pandas_msgpack_7msgpack_7_packer_Packer},
   {Py_tp_doc, (void *)PyDoc_STR("Packer(default=None, encoding='utf-8', unicode_errors='strict', use_single_float=False, bool autoreset=1, bool use_bin_type=0)\n\n    MessagePack Packer\n\n    usage::\n\n        packer = Packer()\n        astream.write(packer.pack(a))\n        astream.write(packer.pack(b))\n\n    Packer's constructor has some keyword arguments:\n\n    :param callable default:\n        Convert user type to builtin type that Packer supports.\n        See also simplejson's document.\n    :param str encoding:\n        Convert unicode to bytes with this encoding. (default: 'utf-8')\n    :param str unicode_errors:\n        Error handler for encoding unicode. (default: 'strict')\n    :param bool use_single_float:\n        Use single precision float type for float. (default: False)\n    :param bool autoreset:\n        Reset buffer after each pack and return it's\n        content as `bytes`. (default: True).\n        If set this to false, use `bytes()` to get\n        content and `.reset()` to clear buffer.\n    :param bool use_bin_type:\n        Use bin type introduced in msgpack spec 2.0 for bytes.\n        It also enable str8 type for unicode.\n    ")},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14pandas_msgpack_7msgpack_7_packer_Packer},
-  {Py_tp_clear, (void *)__pyx_tp_clear_14pandas_msgpack_7msgpack_7_packer_Packer},
-  {Py_tp_methods, (void *)__pyx_methods_14pandas_msgpack_7msgpack_7_packer_Packer},
-  {Py_tp_init, (void *)__pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_3__init__},
-  {Py_tp_new, (void *)__pyx_tp_new_14pandas_msgpack_7msgpack_7_packer_Packer},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_18isf_pandas_msgpack_7msgpack_7_packer_Packer},
+  {Py_tp_clear, (void *)__pyx_tp_clear_18isf_pandas_msgpack_7msgpack_7_packer_Packer},
+  {Py_tp_methods, (void *)__pyx_methods_18isf_pandas_msgpack_7msgpack_7_packer_Packer},
+  {Py_tp_init, (void *)__pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_3__init__},
+  {Py_tp_new, (void *)__pyx_tp_new_18isf_pandas_msgpack_7msgpack_7_packer_Packer},
   {0, 0},
 };
-static PyType_Spec __pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer_spec = {
-  "pandas_msgpack.msgpack._packer.Packer",
-  sizeof(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer),
+static PyType_Spec __pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer_spec = {
+  "isf_pandas_msgpack.msgpack._packer.Packer",
+  sizeof(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer_slots,
+  __pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer = {
+static PyTypeObject __pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pandas_msgpack.msgpack._packer.""Packer", /*tp_name*/
-  sizeof(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer), /*tp_basicsize*/
+  "isf_pandas_msgpack.msgpack._packer.""Packer", /*tp_name*/
+  sizeof(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14pandas_msgpack_7msgpack_7_packer_Packer, /*tp_dealloc*/
+  __pyx_tp_dealloc_18isf_pandas_msgpack_7msgpack_7_packer_Packer, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -7888,13 +7888,13 @@ static PyTypeObject __pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   PyDoc_STR("Packer(default=None, encoding='utf-8', unicode_errors='strict', use_single_float=False, bool autoreset=1, bool use_bin_type=0)\n\n    MessagePack Packer\n\n    usage::\n\n        packer = Packer()\n        astream.write(packer.pack(a))\n        astream.write(packer.pack(b))\n\n    Packer's constructor has some keyword arguments:\n\n    :param callable default:\n        Convert user type to builtin type that Packer supports.\n        See also simplejson's document.\n    :param str encoding:\n        Convert unicode to bytes with this encoding. (default: 'utf-8')\n    :param str unicode_errors:\n        Error handler for encoding unicode. (default: 'strict')\n    :param bool use_single_float:\n        Use single precision float type for float. (default: False)\n    :param bool autoreset:\n        Reset buffer after each pack and return it's\n        content as `bytes`. (default: True).\n        If set this to false, use `bytes()` to get\n        content and `.reset()` to clear buffer.\n    :param bool use_bin_type:\n        Use bin type introduced in msgpack spec 2.0 for bytes.\n        It also enable str8 type for unicode.\n    "), /*tp_doc*/
-  __pyx_tp_traverse_14pandas_msgpack_7msgpack_7_packer_Packer, /*tp_traverse*/
-  __pyx_tp_clear_14pandas_msgpack_7msgpack_7_packer_Packer, /*tp_clear*/
+  __pyx_tp_traverse_18isf_pandas_msgpack_7msgpack_7_packer_Packer, /*tp_traverse*/
+  __pyx_tp_clear_18isf_pandas_msgpack_7msgpack_7_packer_Packer, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_14pandas_msgpack_7msgpack_7_packer_Packer, /*tp_methods*/
+  __pyx_methods_18isf_pandas_msgpack_7msgpack_7_packer_Packer, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -7904,9 +7904,9 @@ static PyTypeObject __pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer = {
   #if !CYTHON_USE_TYPE_SPECS
   0, /*tp_dictoffset*/
   #endif
-  __pyx_pw_14pandas_msgpack_7msgpack_7_packer_6Packer_3__init__, /*tp_init*/
+  __pyx_pw_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_3__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_14pandas_msgpack_7msgpack_7_packer_Packer, /*tp_new*/
+  __pyx_tp_new_18isf_pandas_msgpack_7msgpack_7_packer_Packer, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -8001,6 +8001,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
     {&__pyx_kp_u_isenabled, __pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0, 0},
+    {&__pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_k_isf_pandas_msgpack_msgpack__pack, sizeof(__pyx_k_isf_pandas_msgpack_msgpack__pack), 0, 0, 1, 0},
+    {&__pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_k_isf_pandas_msgpack_msgpack__pack_2, sizeof(__pyx_k_isf_pandas_msgpack_msgpack__pack_2), 0, 0, 1, 1},
     {&__pyx_n_s_items, __pyx_k_items, sizeof(__pyx_k_items), 0, 0, 1, 1},
     {&__pyx_n_s_iteritems, __pyx_k_iteritems, sizeof(__pyx_k_iteritems), 0, 0, 1, 1},
     {&__pyx_n_s_k, __pyx_k_k, sizeof(__pyx_k_k), 0, 0, 1, 1},
@@ -8015,8 +8017,6 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_pack_map_header, __pyx_k_pack_map_header, sizeof(__pyx_k_pack_map_header), 0, 0, 1, 1},
     {&__pyx_n_s_pack_map_pairs, __pyx_k_pack_map_pairs, sizeof(__pyx_k_pack_map_pairs), 0, 0, 1, 1},
     {&__pyx_n_s_pairs, __pyx_k_pairs, sizeof(__pyx_k_pairs), 0, 0, 1, 1},
-    {&__pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_k_pandas_msgpack_msgpack__packer, sizeof(__pyx_k_pandas_msgpack_msgpack__packer), 0, 0, 1, 1},
-    {&__pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_k_pandas_msgpack_msgpack__packer_p, sizeof(__pyx_k_pandas_msgpack_msgpack__packer_p), 0, 0, 1, 0},
     {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
     {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
     {&__pyx_kp_s_recursion_limit_exceeded, __pyx_k_recursion_limit_exceeded, sizeof(__pyx_k_recursion_limit_exceeded), 0, 0, 1, 0},
@@ -8057,7 +8057,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":83
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":83
  *         self.pk.buf = <char*> malloc(buf_size)
  *         if self.pk.buf == NULL:
  *             raise MemoryError("Unable to allocate internal buffer.")             # <<<<<<<<<<<<<<
@@ -8068,7 +8068,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":97
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":97
  *         if default is not None:
  *             if not PyCallable_Check(default):
  *                 raise TypeError("default must be a callable.")             # <<<<<<<<<<<<<<
@@ -8079,7 +8079,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":163
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":163
  *                 L = len(o)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("bytes is too large")             # <<<<<<<<<<<<<<
@@ -8090,7 +8090,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":170
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":170
  *             elif PyUnicode_Check(o):
  *                 if not self.encoding:
  *                     raise TypeError("Can't encode unicode string: "             # <<<<<<<<<<<<<<
@@ -8101,7 +8101,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":176
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":176
  *                 L = len(o)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("dict is too large")             # <<<<<<<<<<<<<<
@@ -8112,7 +8112,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":210
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":210
  *                 L = len(o.data)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("EXT data is too large")             # <<<<<<<<<<<<<<
@@ -8123,7 +8123,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":216
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":216
  *                 L = len(o)
  *                 if L > (2**32) - 1:
  *                     raise ValueError("list is too large")             # <<<<<<<<<<<<<<
@@ -8134,7 +8134,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":230
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":230
  *             return ret
  * 
  *     cpdef pack(self, object obj):             # <<<<<<<<<<<<<<
@@ -8144,9 +8144,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__11 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_obj); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_n_s_pack, 230, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_n_s_pack, 230, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 230, __pyx_L1_error)
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":242
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":242
  *             return buf
  * 
  *     def pack_ext_type(self, typecode, data):             # <<<<<<<<<<<<<<
@@ -8156,9 +8156,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__13 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_typecode, __pyx_n_s_data); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_n_s_pack_ext_type, 242, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_n_s_pack_ext_type, 242, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 242, __pyx_L1_error)
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":246
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":246
  *         msgpack_pack_raw_body(&self.pk, data, len(data))
  * 
  *     def pack_array_header(self, size_t size):             # <<<<<<<<<<<<<<
@@ -8168,18 +8168,18 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__15 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_size, __pyx_n_s_ret, __pyx_n_s_buf); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_n_s_pack_array_header, 246, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_n_s_pack_array_header, 246, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 246, __pyx_L1_error)
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":259
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":259
  *             return buf
  * 
  *     def pack_map_header(self, size_t size):             # <<<<<<<<<<<<<<
  *         if size > (2**32) - 1:
  *             raise ValueError
  */
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_n_s_pack_map_header, 259, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_n_s_pack_map_header, 259, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 259, __pyx_L1_error)
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":272
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":272
  *             return buf
  * 
  *     def pack_map_pairs(self, object pairs):             # <<<<<<<<<<<<<<
@@ -8189,9 +8189,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__18 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_pairs, __pyx_n_s_ret, __pyx_n_s_k, __pyx_n_s_v, __pyx_n_s_buf); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_n_s_pack_map_pairs, 272, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_n_s_pack_map_pairs, 272, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 272, __pyx_L1_error)
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":295
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":295
  *             return buf
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -8201,16 +8201,16 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__20 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_n_s_reset, 295, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_n_s_reset, 295, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 295, __pyx_L1_error)
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":299
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":299
  *         self.pk.length = 0
  * 
  *     def bytes(self):             # <<<<<<<<<<<<<<
  *         """Return buffer content."""
  *         return PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  */
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pandas_msgpack_msgpack__packer_p, __pyx_n_s_bytes, 299, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_isf_pandas_msgpack_msgpack__pack, __pyx_n_s_bytes, 299, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 299, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -8291,45 +8291,45 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  __pyx_vtabptr_14pandas_msgpack_7msgpack_7_packer_Packer = &__pyx_vtable_14pandas_msgpack_7msgpack_7_packer_Packer;
-  __pyx_vtable_14pandas_msgpack_7msgpack_7_packer_Packer._pack = (int (*)(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, struct __pyx_opt_args_14pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args))__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer__pack;
-  __pyx_vtable_14pandas_msgpack_7msgpack_7_packer_Packer.pack = (PyObject *(*)(struct __pyx_obj_14pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, int __pyx_skip_dispatch))__pyx_f_14pandas_msgpack_7msgpack_7_packer_6Packer_pack;
+  __pyx_vtabptr_18isf_pandas_msgpack_7msgpack_7_packer_Packer = &__pyx_vtable_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
+  __pyx_vtable_18isf_pandas_msgpack_7msgpack_7_packer_Packer._pack = (int (*)(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, struct __pyx_opt_args_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack *__pyx_optional_args))__pyx_f_18isf_pandas_msgpack_7msgpack_7_packer_6Packer__pack;
+  __pyx_vtable_18isf_pandas_msgpack_7msgpack_7_packer_Packer.pack = (PyObject *(*)(struct __pyx_obj_18isf_pandas_msgpack_7msgpack_7_packer_Packer *, PyObject *, int __pyx_skip_dispatch))__pyx_f_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_pack;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer_spec, NULL); if (unlikely(!__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer)) __PYX_ERR(0, 40, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer_spec, __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer_spec, NULL); if (unlikely(!__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer)) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer_spec, __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #else
-  __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer = &__pyx_type_14pandas_msgpack_7msgpack_7_packer_Packer;
+  __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer = &__pyx_type_18isf_pandas_msgpack_7msgpack_7_packer_Packer;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
-  __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer->tp_print = 0;
+  __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer->tp_print = 0;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer->tp_dictoffset && __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer->tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer->tp_dictoffset && __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer->tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 40, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 40, __pyx_L1_error)
     if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
-      __pyx_wrapperbase_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__.doc = __pyx_doc_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_14pandas_msgpack_7msgpack_7_packer_6Packer_2__init__;
+      __pyx_wrapperbase_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__.doc = __pyx_doc_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_2__init__;
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_vtabptr_14pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_vtabptr_18isf_pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Packer, (PyObject *) __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Packer, (PyObject *) __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #endif
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -8641,14 +8641,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_pandas_msgpack__msgpack___packer) {
+  if (__pyx_module_is_main_isf_pandas_msgpack__msgpack___packer) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pandas_msgpack.msgpack._packer")) {
-      if (unlikely((PyDict_SetItemString(modules, "pandas_msgpack.msgpack._packer", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "isf_pandas_msgpack.msgpack._packer")) {
+      if (unlikely((PyDict_SetItemString(modules, "isf_pandas_msgpack.msgpack._packer", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -8669,7 +8669,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":9
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":9
  * from libc.limits cimport *
  * 
  * from .exceptions import PackValueError             # <<<<<<<<<<<<<<
@@ -8690,7 +8690,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":10
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":10
  * 
  * from .exceptions import PackValueError
  * from . import ExtType             # <<<<<<<<<<<<<<
@@ -8711,121 +8711,121 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":37
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":37
  *     int msgpack_pack_ext(msgpack_packer* pk, char typecode, size_t l)
  * 
  * cdef int DEFAULT_RECURSE_LIMIT=511             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_v_14pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT = 0x1FF;
+  __pyx_v_18isf_pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT = 0x1FF;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":118
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":118
  * 
  *     cdef int _pack(self, object o,
  *                    int nest_limit=DEFAULT_RECURSE_LIMIT) except -1:             # <<<<<<<<<<<<<<
  *         cdef long long llval
  *         cdef unsigned long long ullval
  */
-  __pyx_k__3 = __pyx_v_14pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT;
+  __pyx_k__3 = __pyx_v_18isf_pandas_msgpack_7msgpack_7_packer_DEFAULT_RECURSE_LIMIT;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":230
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":230
  *             return ret
  * 
  *     cpdef pack(self, object obj):             # <<<<<<<<<<<<<<
  *         cdef int ret
  *         ret = self._pack(obj, DEFAULT_RECURSE_LIMIT)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_7pack, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_7pack, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack, __pyx_t_2) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack, __pyx_t_2) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
+  PyType_Modified(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":242
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":242
  *             return buf
  * 
  *     def pack_ext_type(self, typecode, data):             # <<<<<<<<<<<<<<
  *         msgpack_pack_ext(&self.pk, typecode, len(data))
  *         msgpack_pack_raw_body(&self.pk, data, len(data))
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_ext_type, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_9pack_ext_type, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_ext_type, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_ext_type, __pyx_t_2) < 0) __PYX_ERR(0, 242, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_ext_type, __pyx_t_2) < 0) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
+  PyType_Modified(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":246
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":246
  *         msgpack_pack_raw_body(&self.pk, data, len(data))
  * 
  *     def pack_array_header(self, size_t size):             # <<<<<<<<<<<<<<
  *         if size > (2**32) - 1:
  *             raise ValueError
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_array_header, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_11pack_array_header, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_array_header, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_array_header, __pyx_t_2) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_array_header, __pyx_t_2) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
+  PyType_Modified(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":259
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":259
  *             return buf
  * 
  *     def pack_map_header(self, size_t size):             # <<<<<<<<<<<<<<
  *         if size > (2**32) - 1:
  *             raise ValueError
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_map_header, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_13pack_map_header, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_map_header, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_map_header, __pyx_t_2) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_map_header, __pyx_t_2) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
+  PyType_Modified(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":272
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":272
  *             return buf
  * 
  *     def pack_map_pairs(self, object pairs):             # <<<<<<<<<<<<<<
  *         """
  *         Pack *pairs* as msgpack map type.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_map_pairs, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_15pack_map_pairs, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_pack_map_pairs, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_map_pairs, __pyx_t_2) < 0) __PYX_ERR(0, 272, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_pack_map_pairs, __pyx_t_2) < 0) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
+  PyType_Modified(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":295
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":295
  *             return buf
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         """Clear internal buffer."""
  *         self.pk.length = 0
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_17reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_reset, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_17reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_reset, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_reset, __pyx_t_2) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_reset, __pyx_t_2) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
+  PyType_Modified(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":299
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":299
  *         self.pk.length = 0
  * 
  *     def bytes(self):             # <<<<<<<<<<<<<<
  *         """Return buffer content."""
  *         return PyBytes_FromStringAndSize(self.pk.buf, self.pk.length)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_19bytes, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_bytes, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_19bytes, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer_bytes, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_bytes, __pyx_t_2) < 0) __PYX_ERR(0, 299, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer, __pyx_n_s_bytes, __pyx_t_2) < 0) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_14pandas_msgpack_7msgpack_7_packer_Packer);
+  PyType_Modified(__pyx_ptype_18isf_pandas_msgpack_7msgpack_7_packer_Packer);
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer___reduce_cython, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_21__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer___reduce_cython, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8836,12 +8836,12 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer___setstate_cython, NULL, __pyx_n_s_pandas_msgpack_msgpack__packer, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 3, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18isf_pandas_msgpack_7msgpack_7_packer_6Packer_23__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Packer___setstate_cython, NULL, __pyx_n_s_isf_pandas_msgpack_msgpack__pack_2, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pandas_msgpack/msgpack/_packer.pyx":1
+  /* "isf_pandas_msgpack/msgpack/_packer.pyx":1
  * # coding: utf-8             # <<<<<<<<<<<<<<
  * #cython: embedsignature=True
  * 
@@ -8859,7 +8859,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init pandas_msgpack.msgpack._packer", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init isf_pandas_msgpack.msgpack._packer", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -8873,7 +8873,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pandas_msgpack.msgpack._packer");
+    PyErr_SetString(PyExc_ImportError, "init isf_pandas_msgpack.msgpack._packer");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

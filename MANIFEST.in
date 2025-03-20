@@ -2,8 +2,10 @@ include MANIFEST.in
 include README.rst
 include LICENSE.md
 include setup.py
+include pyproject.toml
+recursive-include isf_pandas_msgpack *.pyx *.pxd *.h *.c *.cpp
 
-graft pandas_msgpack
+graft isf_pandas_msgpack
 
 global-exclude *.so
 global-exclude *.pyd
@@ -13,6 +15,3 @@ global-exclude \#*
 global-exclude .git*
 global-exclude .DS_Store
 global-exclude *.png
-
-include versioneer.py
-include pandas_msgpack/_version.py

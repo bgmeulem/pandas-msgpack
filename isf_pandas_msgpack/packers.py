@@ -91,10 +91,10 @@ def get_filepath_or_buffer(*args, **kwargs):
 
 
 # from pandas_msgpack import _is_pandas_legacy_version
-from pandas_msgpack.msgpack import (Unpacker as _Unpacker,
+from isf_pandas_msgpack.msgpack import (Unpacker as _Unpacker,
                                     Packer as _Packer,
                                     ExtType)
-from pandas_msgpack._move import (
+from isf_pandas_msgpack._move import (
     BadMove as _BadMove,
     move_into_mutable_buffer as _move_into_mutable_buffer,
 )
