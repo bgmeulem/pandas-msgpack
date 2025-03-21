@@ -47,6 +47,7 @@ import warnings
 
 import numpy as np
 from pandas import compat
+import io
 try:
     compat.string_types
 except AttributeError:
@@ -70,25 +71,66 @@ else:
         
 
 try:
-    from pandas.core.dtypes.common import is_categorical_dtype, is_object_dtype, needs_i8_conversion, pandas_dtype
+    from pandas.core.dtypes.common import (
+        is_categorical_dtype, 
+        is_object_dtype, 
+        needs_i8_conversion, 
+        pandas_dtype, 
+        is_extension_array_dtype,
+        PeriodDtype
+        )
 except ImportError:
-    from pandas.types.common import is_categorical_dtype, is_object_dtype, needs_i8_conversion, pandas_dtype
+    from pandas.types.common import (
+        is_categorical_dtype, 
+        is_object_dtype, 
+        needs_i8_conversion, 
+        pandas_dtype, 
+        is_extension_array_dtype,
+        PeriodDtype
+        )
     
 
 from pandas import (Timestamp, Period, Series, DataFrame,  # noqa
-                    Index, MultiIndex,
+                    Index, MultiIndex, Int64Index, Float64Index,
                     RangeIndex, PeriodIndex, DatetimeIndex, NaT,
                     Categorical, CategoricalIndex)
-#from pandas.sparse.api import SparseSeries, SparseDataFrame
-#from pandas.sparse.array import BlockIndex, IntIndex
+from pandas.core.arrays.sparse.array import BlockIndex, IntIndex
+from pandas.arrays import PeriodArray
+from pandas.core.arrays.sparse import SparseDtype
 from pandas.core.generic import NDFrame
-#from pandas.core.common import PerformanceWarning
-#from pandas.io.common import get_filepath_or_buffer
+from pandas.core.dtypes.generic import ABCSeries
+from pandas.io.common import _get_filepath_or_buffer
+from pandas.errors import PerformanceWarning
+
 
 def get_filepath_or_buffer(*args, **kwargs):
-    from pandas.io.common import get_filepath_or_buffer
-    return get_filepath_or_buffer(*args, **kwargs)[:3]
+    io_args = _get_filepath_or_buffer(*args, **kwargs)
+    fpb, encoding, compression = io_args.filepath_or_buffer, io_args.encoding, io_args.compression
+    return fpb, encoding, compression
 
+
+def _safe_reshape(arr, new_shape):
+    """
+    If possible, reshape `arr` to have shape `new_shape`,
+    with a couple of exceptions (see gh-13012):
+
+    1) If `arr` is a ExtensionArray or Index, `arr` will be
+       returned as is.
+    2) If `arr` is a Series, the `_values` attribute will
+       be reshaped and returned.
+
+    Parameters
+    ----------
+    arr : array-like, object to be reshaped
+    new_shape : int or tuple of ints, the new shape
+    """
+    if isinstance(arr, ABCSeries):
+        arr = arr._values
+    if not is_extension_array_dtype(arr.dtype):
+        # Note: this will include TimedeltaArray and tz-naive DatetimeArray
+        # TODO(EA2D): special case will be unnecessary with 2D EAs
+        arr = np.asarray(arr).reshape(new_shape)
+    return arr
 
 # from pandas_msgpack import _is_pandas_legacy_version
 from isf_pandas_msgpack.msgpack import (Unpacker as _Unpacker,
@@ -177,7 +219,7 @@ def to_msgpack(path_or_buf, *args, **kwargs):
         with open(path_or_buf, mode) as fh:
             writer(fh)
     elif path_or_buf is None:
-        buf = compat.BytesIO()
+        buf = io.BytesIO()
         writer(buf)
         return buf.getvalue()
     else:
@@ -221,17 +263,17 @@ def read_msgpack(path_or_buf, encoding='utf-8', iterator=False, **kwargs):
                 return read(fh)
 
     # treat as a binary-like
-    if isinstance(path_or_buf, compat.binary_type):
+    if isinstance(path_or_buf, bytes):
         fh = None
         try:
-            fh = compat.BytesIO(path_or_buf)
+            fh = io.BytesIO(path_or_buf)
             return read(fh)
         finally:
             if fh is not None:
                 fh.close()
 
     # a buffer like
-    if hasattr(path_or_buf, 'read') and compat.callable(path_or_buf.read):
+    if hasattr(path_or_buf, 'read') and callable(path_or_buf.read):
         return read(path_or_buf)
 
     raise ValueError('path_or_buf needs to be a string file path or file-like')
@@ -255,7 +297,7 @@ def dtype_for(t):
     """ return my dtype mapping, whether number or name """
     if t in dtype_dict:
         return dtype_dict[t]
-    return np.typeDict.get(t, t)
+    return np.sctypeDict.get(t, t)
 
 
 c2f_dict = {'complex': np.float64,
@@ -273,7 +315,7 @@ def c2f(r, i, ctype_name):
     """
 
     ftype = c2f_dict[ctype_name]
-    return np.typeDict[ctype_name](ftype(r) + 1j * ftype(i))
+    return np.sctypeDict[ctype_name](ftype(r) + 1j * ftype(i))
 
 
 def convert(values):
@@ -299,7 +341,7 @@ def convert(values):
             return v.tolist()
 
         # convert to a bytes array
-        v = v.tostring()
+        v = v.tobytes()
         return ExtType(0, zlib.compress(v))
 
     elif compressor == 'blosc':
@@ -310,11 +352,11 @@ def convert(values):
             return v.tolist()
 
         # convert to a bytes array
-        v = v.tostring()
+        v = v.tobytes()
         return ExtType(0, blosc.compress(v, typesize=dtype.itemsize))
 
     # ndarray (on original dtype)
-    return ExtType(0, v.tostring())
+    return ExtType(0, v.tobytes())
 
 
 def unconvert(values, dtype, compress=None):
@@ -330,7 +372,13 @@ def unconvert(values, dtype, compress=None):
     elif is_object_dtype(dtype):
         return np.array(values, dtype=object)
 
-    dtype = pandas_dtype(dtype).base
+    original_dtype = pandas_dtype(dtype)
+    if isinstance(original_dtype, SparseDtype):
+        dtype = original_dtype.subtype
+    elif isinstance(original_dtype, PeriodDtype):
+        dtype = np.int64
+    else:
+        dtype = original_dtype.base
 
     if not as_is_ext:
         values = values.encode('latin1')
@@ -346,7 +394,7 @@ def unconvert(values, dtype, compress=None):
             raise ValueError("compress must be one of 'zlib' or 'blosc'")
 
         try:
-            return np.frombuffer(
+            array = np.frombuffer(
                 _move_into_mutable_buffer(decompress(values)),
                 dtype=dtype,
             )
@@ -361,15 +409,29 @@ def unconvert(values, dtype, compress=None):
                 # string creating functions in the capi. This case should not
                 # warn even though we need to make a copy because we are only
                 # copying at most 1 byte.
-                warnings.warn(
+                raise PerformanceWarning(
                     'copying data after decompressing; this may mean that'
                     ' decompress is caching its result',
                     PerformanceWarning,
                 )
-                # fall through to copying `np.fromstring`
+            # fall through to copying `np.fromstring`
+            array = np.frombuffer(values, dtype=dtype)
+    else:
+        array = np.frombuffer(values, dtype=dtype)
 
-    # Copy the string into a numpy array.
-    return np.fromstring(values, dtype=dtype)
+    # Set array to be writeable
+    if not array.flags.writeable:
+        # Move the data into a new array
+        # This is identical to how the deprecated np.fromstring worked
+        # in the old version of packers.
+        array = array.copy()
+        array.setflags(write=True)
+    
+    # Convert to PeriodArray if dtype is PeriodDtype
+    if isinstance(original_dtype, PeriodDtype):
+        array = PeriodArray(array, freq=original_dtype.freq)
+        
+    return array
 
 
 def encode(obj):
@@ -433,43 +495,36 @@ def encode(obj):
                 u'compress': compressor}
 
     elif isinstance(obj, Series):
-#         if isinstance(obj, SparseSeries):
-#             raise NotImplementedError(
-#                 'msgpack sparse series is not implemented'
-#             )
-            # d = {'typ': 'sparse_series',
-            #     'klass': obj.__class__.__name__,
-            #     'dtype': obj.dtype.name,
-            #     'index': obj.index,
-            #     'sp_index': obj.sp_index,
-            #     'sp_values': convert(obj.sp_values),
-            #     'compress': compressor}
-            # for f in ['name', 'fill_value', 'kind']:
-            #    d[f] = getattr(obj, f, None)
-            # return d
-#         else:
-        return {u'typ': u'series',
-                u'klass': u(obj.__class__.__name__),
-                u'name': getattr(obj, 'name', None),
-                u'index': obj.index,
-                u'dtype': u(obj.dtype.name),
-                u'data': convert(obj.values),
-                u'compress': compressor}
+        if isinstance(obj.dtype, SparseDtype):
+            d = {'typ': 'sparse_series',
+                'klass': obj.__class__.__name__,
+                'dtype': obj.dtype.name,
+                'index': obj.index,
+                'sp_index': obj.values.sp_index,
+                'sp_values': convert(obj.values.sp_values),
+                'compress': compressor}
+            for f in ['name', 'fill_value', 'kind']:
+               d[f] = getattr(obj, f, None)
+            return d
+        else:
+            return {u'typ': u'series',
+                    u'klass': u(obj.__class__.__name__),
+                    u'name': getattr(obj, 'name', None),
+                    u'index': obj.index,
+                    u'dtype': u(obj.dtype.name),
+                    u'data': convert(obj.values),
+                    u'compress': compressor}
     elif issubclass(tobj, NDFrame):
-#         if isinstance(obj, SparseDataFrame):
-#             raise NotImplementedError(
-#                 'msgpack sparse frame is not implemented'
-#             )
-            # d = {'typ': 'sparse_dataframe',
-            #     'klass': obj.__class__.__name__,
-            #     'columns': obj.columns}
-            # for f in ['default_fill_value', 'default_kind']:
-            #    d[f] = getattr(obj, f, None)
-            # d['data'] = dict([(name, ss)
-            #                 for name, ss in compat.iteritems(obj)])
-            # return d
-#         else:
-
+        # if isinstance(obj.dtype, SparseDtype):
+        #     d = {'typ': 'sparse_dataframe',
+        #         'klass': obj.__class__.__name__,
+        #         'columns': obj.columns}
+        #     for f in ['default_fill_value', 'default_kind']:
+        #        d[f] = getattr(obj, f, None)
+        #     d['data'] = dict([(name, ss)
+        #                     for name, ss in compat.iteritems(obj)])
+        #     return d
+        # else:
         data = obj._data
         if not data.is_consolidated():
             data = data.consolidate()
@@ -479,11 +534,11 @@ def encode(obj):
                 u'klass': u(obj.__class__.__name__),
                 u'axes': data.axes,
                 u'blocks': [{u'locs': b.mgr_locs.as_array,
-                             u'values': convert(b.values),
-                             u'shape': b.values.shape,
-                             u'dtype': u(b.dtype.name),
-                             u'klass': u(b.__class__.__name__),
-                             u'compress': compressor} for b in data.blocks]
+                            u'values': convert(b.values),
+                            u'shape': b.values.shape,
+                            u'dtype': u(b.dtype.name),
+                            u'klass': u(b.__class__.__name__),
+                            u'compress': compressor} for b in data.blocks]
                 }
 
     elif isinstance(obj, (datetime, date, np.datetime64, timedelta,
@@ -521,17 +576,17 @@ def encode(obj):
         return {u'typ': u'period',
                 u'ordinal': obj.ordinal,
                 u'freq': u(obj.freq)}
-#     elif isinstance(obj, BlockIndex):
-#         return {u'typ': u'block_index',
-#                 u'klass': u(obj.__class__.__name__),
-#                 u'blocs': obj.blocs,
-#                 u'blengths': obj.blengths,
-#                 u'length': obj.length}
-#     elif isinstance(obj, IntIndex):
-#         return {u'typ': u'int_index',
-#                 u'klass': u(obj.__class__.__name__),
-#                 u'indices': obj.indices,
-#                 u'length': obj.length}
+    elif isinstance(obj, BlockIndex):
+        return {u'typ': u'block_index',
+                u'klass': u(obj.__class__.__name__),
+                u'blocs': obj.blocs,
+                u'blengths': obj.blengths,
+                u'length': obj.length}
+    elif isinstance(obj, IntIndex):
+        return {u'typ': u'int_index',
+                u'klass': u(obj.__class__.__name__),
+                u'indices': obj.indices,
+                u'length': obj.length}
     elif isinstance(obj, np.ndarray):
         return {u'typ': u'ndarray',
                 u'shape': obj.shape,
@@ -590,17 +645,22 @@ def decode(obj):
         data = [tuple(x) for x in data]
         return globals()[obj[u'klass']].from_tuples(data, names=obj[u'names'])
     elif typ == u'period_index':
-        data = unconvert(obj[u'data'], np.int64, obj.get(u'compress'))
+        data = unconvert(obj[u'data'], obj[u'dtype'], obj.get(u'compress'))
         d = dict(name=obj[u'name'], freq=obj[u'freq'])
+        # raise ValueError(obj)
         # if _is_pandas_legacy_version:
         #     # legacy
         #     return globals()[obj[u'klass']](data, **d)
         # else:
         #     return globals()[obj[u'klass']]._from_ordinals(data, **d)
-        return globals()[obj[u'klass']]._from_ordinals(data, **d)
+        return globals()[obj[u'klass']](data, **d)
     elif typ == u'datetime_index':
         data = unconvert(obj[u'data'], np.int64, obj.get(u'compress'))
-        d = dict(name=obj[u'name'], freq=obj[u'freq'], verify_integrity=False)
+        d = dict(
+            name=obj[u'name'], 
+            freq=obj[u'freq'], 
+            # verify_integrity=False
+            )
         result = globals()[obj[u'klass']](data, **d)
         tz = obj[u'tz']
 
@@ -628,8 +688,7 @@ def decode(obj):
         return result
 
     elif typ == u'block_manager':
-        raise NotImplementedError("Deserializing block managers requires pandas internals, which we have not (yet) patched.")
-        from pandas.core.internals import BlockManager, make_block, _safe_reshape
+        from pandas.core.internals import BlockManager, make_block
         import pandas.core.internals as internals
         axes = obj[u'axes']
 
@@ -645,12 +704,12 @@ def decode(obj):
             else:
                 placement = axes[0].get_indexer(b[u'items'])
             return make_block(values=values,
-                              klass=getattr(internals, b[u'klass']),
+                              klass=getattr(internals.blocks, b[u'klass']),
                               placement=placement,
                               dtype=b[u'dtype'])
 
         blocks = [create_block(b) for b in obj[u'blocks']]
-        return globals()[obj[u'klass']](BlockManager(blocks, axes))
+        return globals()[obj[u'klass']](BlockManager(blocks, list(axes)))
     elif typ == u'datetime':
         return parse(obj[u'data'])
     elif typ == u'datetime64':
@@ -662,11 +721,13 @@ def decode(obj):
     elif typ == u'timedelta64':
         return np.timedelta64(int(obj[u'data']))
     # elif typ == 'sparse_series':
-    #    dtype = dtype_for(obj['dtype'])
-    #    return globals()[obj['klass']](
-    #        unconvert(obj['sp_values'], dtype, obj['compress']),
-    #        sparse_index=obj['sp_index'], index=obj['index'],
-    #        fill_value=obj['fill_value'], kind=obj['kind'], name=obj['name'])
+    #     dtype = dtype_for(obj['dtype'])
+    #     sp_values = unconvert(obj['sp_values'], dtype, obj['compress'])
+    #     index = obj['index']
+    #     s = globals()[obj['klass']](sp_values, index=index, name=obj['name'])
+    #     s.fill_value = obj['fill_value']
+    #     s.kind = obj['kind']
+    #     return s
     # elif typ == 'sparse_dataframe':
     #    return globals()[obj['klass']](
     #        obj['data'], columns=obj['columns'],
@@ -684,7 +745,7 @@ def decode(obj):
     elif typ == u'int_index':
         return globals()[obj[u'klass']](obj[u'length'], obj[u'indices'])
     elif typ == u'ndarray':
-        return unconvert(obj[u'data'], np.typeDict[obj[u'dtype']],
+        return unconvert(obj[u'data'], np.sctypeDict[obj[u'dtype']],
                          obj.get(u'compress')).reshape(obj[u'shape'])
     elif typ == u'np_scalar':
         if obj.get(u'sub_typ') == u'np_complex':
@@ -794,12 +855,12 @@ class Iterator(object):
                 if path_exists:
                     fh = open(self.path, 'rb')
                 else:
-                    fh = compat.BytesIO(self.path)
+                    fh = io.BytesIO(self.path)
 
             else:
 
                 if not hasattr(self.path, 'read'):
-                    fh = compat.BytesIO(self.path)
+                    fh = io.BytesIO(self.path)
 
                 else:
 

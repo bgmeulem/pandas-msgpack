@@ -38,6 +38,7 @@ linux = "3.10.0"
 
 [tool.pixi.environments]
 build = ['build']
+test = ['test']
 
 [tool.pixi.tasks]
 build_ext = { cmd = [
@@ -47,7 +48,10 @@ build = { cmd = [
     "python", "-m", "build", "--sdist"
     ], description = "Build the package" }
 test = { cmd = [
-    "pytest --tb=short -q --disable-warnings"
+    "pytest", 
+    "--tb=short",
+    "-q", 
+    "--disable-warnings"
     ], description = "Run the tests" }
 
 [tool.pixi.feature.build.dependencies]
@@ -55,7 +59,11 @@ cython = ">=3.0.12,<4"
 twine = ">=6.1.0,<7"
 hatch = ">=1.14.0,<2"
 pip = ">=25.0.1,<26"
-pandas = ">=1.0.0,<2"
+setuptools_scm = ">=8.2.1,<9"
+
+[tool.pixi.feature.test.dependencies]
+pytest = "*"
+blosc = ">=1.21.6,<2"
 
 [tool.pixi.dependencies]
-setuptools_scm = ">=8.2.1,<9"
+pandas = ">=1.0.0,<2"

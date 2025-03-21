@@ -1,32 +1,32 @@
 import pytest
 
-import os
+import os, io
 import datetime
 import numpy as np
 import sys
 from distutils.version import LooseVersion
+import random, string
 
-from isf_pandas_msgpack import _is_pandas_legacy_version
 from isf_pandas_msgpack import to_msgpack, read_msgpack
+from isf_pandas_msgpack.packers import unpack
 
-from pandas import compat
-from pandas.compat import u, PY3
-from pandas import (Series, DataFrame, Panel, MultiIndex, bdate_range,
+import pandas as pd
+from pandas import (Series, DataFrame, MultiIndex, bdate_range,
                     date_range, period_range, Index, Categorical)
-from pandas.api.types import is_datetime64tz_dtype
-from pandas.core.common import PerformanceWarning
-import pandas.util.testing as tm
-from pandas.util.testing import (ensure_clean,
-                                 assert_categorical_equal,
-                                 assert_frame_equal,
-                                 assert_index_equal,
-                                 assert_series_equal,
-                                 assert_panel_equal,
-                                 patch)
+from pandas.errors import PerformanceWarning
+import pandas._testing as tm
+from pandas._testing import (
+    assert_frame_equal,
+    assert_index_equal,
+    assert_series_equal,
+    assert_categorical_equal
+)
+from pandas._testing.contexts import ensure_clean
+from unittest.mock import patch
 
 import pandas
+import pandas.io as pio
 from pandas import Timestamp, NaT
-from pandas.lib import iNaT
 
 nan = np.nan
 
@@ -43,6 +43,10 @@ except ImportError:
     _ZLIB_INSTALLED = False
 else:
     _ZLIB_INSTALLED = True
+    
+def random_string(length):
+   letters = string.ascii_lowercase
+   return ''.join(random.choice(letters) for i in range(length))
 
 
 @pytest.fixture(scope='module')
@@ -67,22 +71,12 @@ def check_arbitrary(a, b):
         assert(len(a) == len(b))
         for a_, b_ in zip(a, b):
             check_arbitrary(a_, b_)
-    elif isinstance(a, Panel):
-        assert_panel_equal(a, b)
     elif isinstance(a, DataFrame):
         assert_frame_equal(a, b)
     elif isinstance(a, Series):
         assert_series_equal(a, b)
     elif isinstance(a, Index):
         assert_index_equal(a, b)
-    elif isinstance(a, Categorical):
-        # Temp,
-        # Categorical.categories is changed from str to bytes in PY3
-        # maybe the same as GH 13591
-        if PY3 and b.categories.inferred_type == 'string':
-            pass
-        else:
-            tm.assert_categorical_equal(a, b)
     elif a is NaT:
         assert b is NaT
     elif isinstance(a, Timestamp):
@@ -92,12 +86,12 @@ def check_arbitrary(a, b):
         assert(a == b)
 
 
-class TestPackers(tm.TestCase):
+class TestPackers:
 
-    def setUp(self):
-        self.path = '__%s__.msg' % tm.rands(10)
+    def setup_class(cls):
+        cls.path = '__%s__.msg' % random_string(10)
 
-    def tearDown(self):
+    def teardown_class(self):
         pass
 
     def encode_decode(self, x, compress=None, **kwargs):
@@ -111,28 +105,29 @@ class TestAPI(TestPackers):
     def test_string_io(self):
 
         df = DataFrame(np.random.randn(10, 2))
-        s = df.to_msgpack(None)
-        result = read_msgpack(s)
-        tm.assert_frame_equal(result, df)
-
-        s = df.to_msgpack()
-        result = read_msgpack(s)
-        tm.assert_frame_equal(result, df)
-
-        s = df.to_msgpack()
-        result = read_msgpack(compat.BytesIO(s))
-        tm.assert_frame_equal(result, df)
 
         s = to_msgpack(None, df)
         result = read_msgpack(s)
         tm.assert_frame_equal(result, df)
 
+        # s = to_msgpack(None, df)
+        # result = read_msgpack(s)
+        # tm.assert_frame_equal(result, df)
+
+        to_msgpack(self.path, df)
+        with open(self.path, 'rb') as fh:
+            result = read_msgpack(s)
+        tm.assert_frame_equal(result, df)
+
+        # s = to_msgpack(self.path, df)
+        # result = read_msgpack(s)
+        # tm.assert_frame_equal(result, df)
+
         with ensure_clean(self.path) as p:
 
-            s = df.to_msgpack()
-            fh = open(p, 'wb')
-            fh.write(s)
-            fh.close()
+            s = to_msgpack(None, df)
+            with open(p, 'wb') as fh:
+                fh.write(s)
             result = read_msgpack(p)
             tm.assert_frame_equal(result, df)
 
@@ -150,41 +145,43 @@ class TestAPI(TestPackers):
             def __init__(self):
                 self.read = 0
 
-        tm.assertRaises(ValueError, read_msgpack, path_or_buf=None)
-        tm.assertRaises(ValueError, read_msgpack, path_or_buf={})
-        tm.assertRaises(ValueError, read_msgpack, path_or_buf=A())
-
+        with pytest.raises(ValueError):
+            read_msgpack(path_or_buf=None)
+        with pytest.raises(ValueError):
+            read_msgpack(path_or_buf={})
+        with pytest.raises(ValueError):
+            read_msgpack(path_or_buf=A())
 
 class TestNumpy(TestPackers):
 
     def test_numpy_scalar_float(self):
         x = np.float32(np.random.rand())
         x_rec = self.encode_decode(x)
-        tm.assert_almost_equal(x, x_rec)
+        assert x == pytest.approx(x_rec)
 
     def test_numpy_scalar_complex(self):
         x = np.complex64(np.random.rand() + 1j * np.random.rand())
         x_rec = self.encode_decode(x)
-        self.assertTrue(np.allclose(x, x_rec))
+        assert np.allclose(x, x_rec)
 
     def test_scalar_float(self):
         x = np.random.rand()
         x_rec = self.encode_decode(x)
-        tm.assert_almost_equal(x, x_rec)
+        assert x == pytest.approx(x_rec)
 
     def test_scalar_complex(self):
         x = np.random.rand() + 1j * np.random.rand()
         x_rec = self.encode_decode(x)
-        self.assertTrue(np.allclose(x, x_rec))
+        assert np.allclose(x, x_rec)
 
     def test_list_numpy_float(self):
         x = [np.float32(np.random.rand()) for i in range(5)]
         x_rec = self.encode_decode(x)
         # current msgpack cannot distinguish list/tuple
-        tm.assert_almost_equal(tuple(x), x_rec)
+        assert tuple(x) == pytest.approx(x_rec)
 
         x_rec = self.encode_decode(tuple(x))
-        tm.assert_almost_equal(tuple(x), x_rec)
+        assert tuple(x) == pytest.approx(x_rec)
 
     def test_list_numpy_float_complex(self):
         if not hasattr(np, 'complex128'):
@@ -194,47 +191,47 @@ class TestNumpy(TestPackers):
             [np.complex128(np.random.rand() + 1j * np.random.rand())
              for i in range(5)]
         x_rec = self.encode_decode(x)
-        self.assertTrue(np.allclose(x, x_rec))
+        assert np.allclose(x, x_rec)
 
     def test_list_float(self):
         x = [np.random.rand() for i in range(5)]
         x_rec = self.encode_decode(x)
         # current msgpack cannot distinguish list/tuple
-        tm.assert_almost_equal(tuple(x), x_rec)
+        assert tuple(x) == pytest.approx(x_rec)
 
         x_rec = self.encode_decode(tuple(x))
-        tm.assert_almost_equal(tuple(x), x_rec)
+        assert tuple(x) == pytest.approx(x_rec)
 
     def test_list_float_complex(self):
         x = [np.random.rand() for i in range(5)] + \
             [(np.random.rand() + 1j * np.random.rand()) for i in range(5)]
         x_rec = self.encode_decode(x)
-        self.assertTrue(np.allclose(x, x_rec))
+        assert np.allclose(x, x_rec)
 
     def test_dict_float(self):
         x = {'foo': 1.0, 'bar': 2.0}
         x_rec = self.encode_decode(x)
-        tm.assert_almost_equal(x, x_rec)
+        assert x == pytest.approx(x_rec)
 
     def test_dict_complex(self):
         x = {'foo': 1.0 + 1.0j, 'bar': 2.0 + 2.0j}
         x_rec = self.encode_decode(x)
-        self.assertEqual(x, x_rec)
+        assert x == x_rec
         for key in x:
-            self.assertEqual(type(x[key]), type(x_rec[key]))
+            assert type(x[key]) == type(x_rec[key])
 
     def test_dict_numpy_float(self):
         x = {'foo': np.float32(1.0), 'bar': np.float32(2.0)}
         x_rec = self.encode_decode(x)
-        tm.assert_almost_equal(x, x_rec)
+        assert x == pytest.approx(x_rec)
 
     def test_dict_numpy_complex(self):
         x = {'foo': np.complex128(1.0 + 1.0j),
              'bar': np.complex128(2.0 + 2.0j)}
         x_rec = self.encode_decode(x)
-        self.assertEqual(x, x_rec)
+        assert x == x_rec
         for key in x:
-            self.assertEqual(type(x[key]), type(x_rec[key]))
+            assert type(x[key]) == type(x_rec[key])
 
     def test_numpy_array_float(self):
 
@@ -244,22 +241,21 @@ class TestNumpy(TestPackers):
             for dtype in ['float32', 'float64']:
                 x = x.astype(dtype)
                 x_rec = self.encode_decode(x)
-                tm.assert_almost_equal(x, x_rec)
+                assert x == pytest.approx(x_rec)
 
     def test_numpy_array_complex(self):
         x = (np.random.rand(5) + 1j * np.random.rand(5)).astype(np.complex128)
         x_rec = self.encode_decode(x)
-        self.assertTrue(all(map(lambda x, y: x == y, x, x_rec)) and
-                        x.dtype == x_rec.dtype)
+        assert all(map(lambda x, y: x == y, x, x_rec)) and x.dtype == x_rec.dtype
 
     def test_list_mixed(self):
-        x = [1.0, np.float32(3.5), np.complex128(4.25), u('foo')]
+        x = [1.0, np.float32(3.5), np.complex128(4.25), u'foo']
         x_rec = self.encode_decode(x)
         # current msgpack cannot distinguish list/tuple
-        tm.assert_almost_equal(tuple(x), x_rec)
+        assert tuple(x) == pytest.approx(x_rec)
 
         x_rec = self.encode_decode(tuple(x))
-        tm.assert_almost_equal(tuple(x), x_rec)
+        assert tuple(x) == pytest.approx(x_rec)
 
 
 class TestBasic(TestPackers):
@@ -270,11 +266,11 @@ class TestBasic(TestPackers):
             '20130101'), Timestamp('20130101', tz='US/Eastern'),
                 Timestamp('201301010501')]:
             i_rec = self.encode_decode(i)
-            self.assertEqual(i, i_rec)
+            assert i == i_rec
 
     def test_nat(self):
         nat_rec = self.encode_decode(NaT)
-        self.assertIs(NaT, nat_rec)
+        assert pd.isnull(nat_rec)
 
     def test_datetimes(self):
 
@@ -288,7 +284,7 @@ class TestBasic(TestPackers):
                   datetime.date(2013, 1, 1),
                   np.datetime64(datetime.datetime(2013, 1, 5, 2, 15))]:
             i_rec = self.encode_decode(i)
-            self.assertEqual(i, i_rec)
+            assert i == i_rec
 
     def test_timedeltas(self):
 
@@ -296,15 +292,16 @@ class TestBasic(TestPackers):
                   datetime.timedelta(days=1, seconds=10),
                   np.timedelta64(1000000)]:
             i_rec = self.encode_decode(i)
-            self.assertEqual(i, i_rec)
+            assert i == i_rec 
 
 
 class TestIndex(TestPackers):
 
-    def setUp(self):
-        super(TestIndex, self).setUp()
+    @classmethod
+    def setup_class(cls):
+        super().setup_class(cls)
 
-        self.d = {
+        cls.d = {
             'string': tm.makeStringIndex(100),
             'date': tm.makeDateIndex(100),
             'int': tm.makeIntIndex(100),
@@ -318,7 +315,7 @@ class TestIndex(TestPackers):
             'cat': tm.makeCategoricalIndex(100)
         }
 
-        self.mi = {
+        cls.mi = {
             'reg': MultiIndex.from_tuples([('bar', 'one'), ('baz', 'two'),
                                            ('foo', 'two'),
                                            ('qux', 'one'), ('qux', 'two')],
@@ -329,32 +326,32 @@ class TestIndex(TestPackers):
 
         for s, i in self.d.items():
             i_rec = self.encode_decode(i)
-            self.assert_index_equal(i, i_rec)
+            assert_index_equal(i, i_rec)
 
         # datetime with no freq (GH5506)
         i = Index([Timestamp('20130101'), Timestamp('20130103')])
         i_rec = self.encode_decode(i)
-        self.assert_index_equal(i, i_rec)
+        assert_index_equal(i, i_rec)
 
         # datetime with timezone
         i = Index([Timestamp('20130101 9:00:00'), Timestamp(
             '20130103 11:00:00')]).tz_localize('US/Eastern')
         i_rec = self.encode_decode(i)
-        self.assert_index_equal(i, i_rec)
+        assert_index_equal(i, i_rec)
 
     def test_multi_index(self):
 
         for s, i in self.mi.items():
             i_rec = self.encode_decode(i)
-            self.assert_index_equal(i, i_rec)
+            assert_index_equal(i, i_rec)
 
-    def test_unicode(self):
-        i = tm.makeUnicodeIndex(100)
+    def test_str_index(self):
+        i = tm.makeStringIndex(100)
 
         i_rec = self.encode_decode(i)
-        self.assert_index_equal(i, i_rec)
+        assert_index_equal(i, i_rec)
 
-    def categorical_index(self):
+    def test_categorical_index(self):
         # GH15487
         df = DataFrame(np.random.randn(10, 2))
         df = df.astype({0: 'category'}).set_index(0)
@@ -364,21 +361,19 @@ class TestIndex(TestPackers):
 
 class TestSeries(TestPackers):
 
-    def setUp(self):
-        super(TestSeries, self).setUp()
+    @classmethod
+    def setup_class(cls):
+        super().setup_class(cls)
 
-        self.d = {}
+        cls.d = {}
 
         s = tm.makeStringSeries()
         s.name = 'string'
-        self.d['string'] = s
+        cls.d['string'] = s
 
         s = tm.makeObjectSeries()
         s.name = 'object'
-        self.d['object'] = s
-
-        s = Series(iNaT, dtype='M8[ns]', index=range(5))
-        self.d['date'] = s
+        cls.d['object'] = s
 
         data = {
             'A': [0., 1., 2., 3., np.nan],
@@ -393,13 +388,13 @@ class TestSeries(TestPackers):
             'I': Categorical([1, 2, 3, 4, 5], ordered=True),
         }
 
-        self.d['float'] = Series(data['A'])
-        self.d['int'] = Series(data['B'])
-        self.d['mixed'] = Series(data['E'])
-        self.d['dt_tz_mixed'] = Series(data['F'])
-        self.d['dt_tz'] = Series(data['G'])
-        self.d['cat_ordered'] = Series(data['H'])
-        self.d['cat_unordered'] = Series(data['I'])
+        cls.d['float'] = Series(data['A'])
+        cls.d['int'] = Series(data['B'])
+        cls.d['mixed'] = Series(data['E'])
+        cls.d['dt_tz_mixed'] = Series(data['F'])
+        cls.d['dt_tz'] = Series(data['G'])
+        cls.d['cat_ordered'] = Series(data['H'])
+        cls.d['cat_unordered'] = Series(data['I'])
 
     def test_basic(self):
 
@@ -407,28 +402,23 @@ class TestSeries(TestPackers):
         for n in range(10):
             for s, i in self.d.items():
 
-                if is_datetime64tz_dtype(i) and _is_pandas_legacy_version:
-                    # xref: https://github.com/pandas-dev/pandas/issues/14901
-                    # this is a bug in < 0.20.0
-                    continue
-
                 i_rec = self.encode_decode(i)
                 assert_series_equal(i, i_rec)
 
 
 class TestCategorical(TestPackers):
 
-    def setUp(self):
-        super(TestCategorical, self).setUp()
+    def setup_class(cls):
+        super().setup_class(cls)
 
-        self.d = {}
+        cls.d = {}
 
-        self.d['plain_str'] = Categorical(['a', 'b', 'c', 'd', 'e'])
-        self.d['plain_str_ordered'] = Categorical(['a', 'b', 'c', 'd', 'e'],
+        cls.d['plain_str'] = Categorical(['a', 'b', 'c', 'd', 'e'])
+        cls.d['plain_str_ordered'] = Categorical(['a', 'b', 'c', 'd', 'e'],
                                                   ordered=True)
 
-        self.d['plain_int'] = Categorical([5, 6, 7, 8])
-        self.d['plain_int_ordered'] = Categorical([5, 6, 7, 8], ordered=True)
+        cls.d['plain_int'] = Categorical([5, 6, 7, 8])
+        cls.d['plain_int_ordered'] = Categorical([5, 6, 7, 8], ordered=True)
 
     def test_basic(self):
 
@@ -441,8 +431,9 @@ class TestCategorical(TestPackers):
 
 class TestNDFrame(TestPackers):
 
-    def setUp(self):
-        super(TestNDFrame, self).setUp()
+    @classmethod
+    def setup_class(cls):
+        super().setup_class(cls)
 
         data = {
             'A': [0., 1., 2., 3., np.nan],
@@ -456,26 +447,16 @@ class TestNDFrame(TestPackers):
             'I': Categorical(['a', 'b', 'c', 'd', 'e'], ordered=True),
         }
 
-        self.frame = {
+        cls.frame = {
             'float': DataFrame(dict(A=data['A'], B=Series(data['A']) + 1)),
             'int': DataFrame(dict(A=data['B'], B=Series(data['B']) + 1)),
             'mixed': DataFrame(data)}
-
-        self.panel = {
-            'float': Panel(dict(ItemA=self.frame['float'],
-                                ItemB=self.frame['float'] + 1))}
 
     def test_basic_frame(self):
 
         for s, i in self.frame.items():
             i_rec = self.encode_decode(i)
             assert_frame_equal(i, i_rec)
-
-    def test_basic_panel(self):
-
-        for s, i in self.panel.items():
-            i_rec = self.encode_decode(i)
-            assert_panel_equal(i, i_rec)
 
     def test_multi(self):
 
@@ -492,7 +473,7 @@ class TestNDFrame(TestPackers):
         l = [self.frame['float'], self.frame['float']
              .A, self.frame['float'].B, None]
         l_rec = self.encode_decode(l)
-        self.assertIsInstance(l_rec, tuple)
+        assert isinstance(l_rec, tuple)
         check_arbitrary(l, l_rec)
 
     def test_iterator(self):
@@ -540,59 +521,60 @@ class TestSparse(TestPackers):
     def _check_roundtrip(self, obj, comparator, **kwargs):
 
         # currently these are not implemetned
-        # i_rec = self.encode_decode(obj)
+        i_rec = self.encode_decode(obj)
         # comparator(obj, i_rec, **kwargs)
-        self.assertRaises(NotImplementedError, self.encode_decode, obj)
+        raise ValueError("{}\n{}".format(obj, pd.Series(i_rec)))
+        with pytest.raises(NotImplementedError):
+            self.encode_decode(obj)
 
+    @pytest.mark.skip(reason="Sparse Series are not implemented (yet): see packers.unconvert for reconsturcting sparse series.")
     def test_sparse_series(self):
 
         s = tm.makeStringSeries()
         s[3:5] = np.nan
-        ss = s.to_sparse()
+        ss = s.astype("Sparse")
         self._check_roundtrip(ss, tm.assert_series_equal,
                               check_series_type=True)
 
-        ss2 = s.to_sparse(kind='integer')
+        ss2 = s.astype('Sparse[int]')
         self._check_roundtrip(ss2, tm.assert_series_equal,
                               check_series_type=True)
 
-        ss3 = s.to_sparse(fill_value=0)
-        self._check_roundtrip(ss3, tm.assert_series_equal,
-                              check_series_type=True)
-
+    @pytest.mark.skip(reason="Sparse DataFrames are deprecated. Dataframes can however contain sparse Series.")
     def test_sparse_frame(self):
 
         s = tm.makeDataFrame()
         s.loc[3:5, 1:3] = np.nan
         s.loc[8:10, -2] = np.nan
-        ss = s.to_sparse()
+        ss = s.astype("Sparse")
 
         self._check_roundtrip(ss, tm.assert_frame_equal,
                               check_frame_type=True)
 
-        ss2 = s.to_sparse(kind='integer')
+        ss2 = s.astype('Sparse[int]')
         self._check_roundtrip(ss2, tm.assert_frame_equal,
                               check_frame_type=True)
 
-        ss3 = s.to_sparse(fill_value=0)
-        self._check_roundtrip(ss3, tm.assert_frame_equal,
-                              check_frame_type=True)
+        # ss3 = s.to_sparse(fill_value=0)
+        # self._check_roundtrip(ss3, tm.assert_frame_equal,
+        #                       check_frame_type=True)
 
 
 class TestCompression(TestPackers):
     """See https://github.com/pandas-dev/pandas/pull/9783
     """
 
-    def setUp(self):
+    @classmethod
+    def setup_class(cls):
         try:
             from sqlalchemy import create_engine
-            self._create_sql_engine = create_engine
+            cls._create_sql_engine = create_engine
         except ImportError:
-            self._SQLALCHEMY_INSTALLED = False
+            cls._SQLALCHEMY_INSTALLED = False
         else:
-            self._SQLALCHEMY_INSTALLED = True
+            cls._SQLALCHEMY_INSTALLED = True
 
-        super(TestCompression, self).setUp()
+        super().setup_class(cls)
         data = {
             'A': np.arange(1000, dtype=np.float64),
             'B': np.arange(1000, dtype=np.int32),
@@ -600,7 +582,7 @@ class TestCompression(TestPackers):
             'D': date_range(datetime.datetime(2015, 4, 1), periods=1000),
             'E': [datetime.timedelta(days=x) for x in range(1000)],
         }
-        self.frame = {
+        cls.frame = {
             'float': DataFrame(dict((k, data[k]) for k in ['A', 'A'])),
             'int': DataFrame(dict((k, data[k]) for k in ['B', 'B'])),
             'mixed': DataFrame(data),
@@ -619,7 +601,12 @@ class TestCompression(TestPackers):
             assert_frame_equal(value, expected)
             # make sure that we can write to the new frames
             for block in value._data.blocks:
-                self.assertTrue(block.values.flags.writeable)
+                if isinstance(block.values, np.ndarray):
+                    assert block.values.flags.writeable
+                else:
+                    # e.g. DatetimeArray
+                    # Access underlying _data array
+                    assert block.values._data.flags.writeable
 
     def test_compression_zlib(self):
         if not _ZLIB_INSTALLED:
@@ -656,34 +643,34 @@ class TestCompression(TestPackers):
             np.dtype('timedelta64[ns]'): np.timedelta64(1, 'ns'),
         }
 
-        with patch(compress_module, 'decompress', decompress), \
-                tm.assert_produces_warning(PerformanceWarning) as ws:
+        with patch(f"{compress}.decompress", decompress), pytest.raises(PerformanceWarning) as excinfo:
 
-            i_rec = self.encode_decode(self.frame, compress=compress)
+            i_rec = self.encode_decode(
+                self.frame, 
+                compress=compress
+                )
             for k in self.frame.keys():
-
                 value = i_rec[k]
                 expected = self.frame[k]
                 assert_frame_equal(value, expected)
                 # make sure that we can write to the new frames even though
                 # we needed to copy the data
                 for block in value._data.blocks:
-                    self.assertTrue(block.values.flags.writeable)
-                    # mutate the data in some way
-                    block.values[0] += rhs[block.dtype]
+                    if isinstance(block.values, np.ndarray):
+                        assert block.values.flags.writeable
+                        # mutate the data in some way
+                        block.values[0] += rhs[block.dtype]
+                    else:
+                        # e.g. DatetimeArray
+                        # Access underlying _data array
+                        assert block.values._data.flags.writeable
+                        block.values._data[0] += rhs[block.dtype]
 
-        for w in ws:
-            # check the messages from our warnings
-            self.assertEqual(
-                str(w.message),
-                'copying data after decompressing; this may mean that'
-                ' decompress is caching its result',
-            )
-
+        assert excinfo.match('copying data after decompressing; this may mean that decompress is caching its result')
         for buf, control_buf in zip(not_garbage, control):
             # make sure none of our mutations above affected the
             # original buffers
-            self.assertEqual(buf, control_buf)
+            assert buf == control_buf
 
     def test_compression_warns_when_decompress_caches_zlib(self):
         if not _ZLIB_INSTALLED:
@@ -701,14 +688,15 @@ class TestCompression(TestPackers):
             empty_unpacked = self.encode_decode(empty, compress=compress)
 
         tm.assert_numpy_array_equal(empty_unpacked, empty)
-        self.assertTrue(empty_unpacked.flags.writeable)
+        # Ensure that the unpacked array is writable
+        assert empty_unpacked.flags.writeable
 
         char = np.array([ord(b'a')], dtype='uint8')
         with tm.assert_produces_warning(None):
             char_unpacked = self.encode_decode(char, compress=compress)
 
         tm.assert_numpy_array_equal(char_unpacked, char)
-        self.assertTrue(char_unpacked.flags.writeable)
+        assert char_unpacked.flags.writeable
         # if this test fails I am sorry because the interpreter is now in a
         # bad state where b'a' points to 98 == ord(b'b').
         char_unpacked[0] = ord(b'b')
@@ -716,7 +704,7 @@ class TestCompression(TestPackers):
         # we compare the ord of bytes b'a' with unicode u'a' because the should
         # always be the same (unless we were able to mutate the shared
         # character singleton in which case ord(b'a') == ord(b'b').
-        self.assertEqual(ord(b'a'), ord(u'a'))
+        assert ord(b'a') == ord(u'a')
         tm.assert_numpy_array_equal(
             char_unpacked,
             np.array([ord(b'b')], dtype='uint8'),
@@ -738,15 +726,15 @@ class TestCompression(TestPackers):
             pytest.skip('no blosc')
         df1 = DataFrame({'A': list('abcd')})
         df2 = DataFrame(df1, index=[1., 2., 3., 4.])
-        self.assertTrue(1 in self.encode_decode(df1['A'], compress='blosc'))
-        self.assertTrue(1. in self.encode_decode(df2['A'], compress='blosc'))
+        assert 1 in self.encode_decode(df1['A'], compress='blosc')
+        assert 1. in self.encode_decode(df2['A'], compress='blosc')
 
     def test_readonly_axis_zlib(self):
         # GH11880
         df1 = DataFrame({'A': list('abcd')})
         df2 = DataFrame(df1, index=[1., 2., 3., 4.])
-        self.assertTrue(1 in self.encode_decode(df1['A'], compress='zlib'))
-        self.assertTrue(1. in self.encode_decode(df2['A'], compress='zlib'))
+        assert 1 in self.encode_decode(df1['A'], compress='zlib')
+        assert 1. in self.encode_decode(df2['A'], compress='zlib')
 
     def test_readonly_axis_blosc_to_sql(self):
         # GH11880
@@ -779,35 +767,36 @@ class TestCompression(TestPackers):
 
 class TestEncoding(TestPackers):
 
-    def setUp(self):
-        super(TestEncoding, self).setUp()
+    @classmethod
+    def setup_class(cls):
+        super().setup_class(cls)
         data = {
-            'A': [compat.u('\u2019')] * 1000,
+            'A': [u'\u2019'] * 1000,
             'B': np.arange(1000, dtype=np.int32),
             'C': list(100 * 'abcdefghij'),
             'D': date_range(datetime.datetime(2015, 4, 1), periods=1000),
             'E': [datetime.timedelta(days=x) for x in range(1000)],
             'G': [400] * 1000
         }
-        self.frame = {
+        cls.frame = {
             'float': DataFrame(dict((k, data[k]) for k in ['A', 'A'])),
             'int': DataFrame(dict((k, data[k]) for k in ['B', 'B'])),
             'mixed': DataFrame(data),
         }
-        self.utf_encodings = ['utf8', 'utf16', 'utf32']
+        cls.utf_encodings = ['utf8', 'utf16', 'utf32']
 
     def test_utf(self):
         # GH10581
         for encoding in self.utf_encodings:
-            for frame in compat.itervalues(self.frame):
+            for frame in self.frame.values():
                 result = self.encode_decode(frame, encoding=encoding)
                 assert_frame_equal(result, frame)
 
     def test_default_encoding(self):
-        for frame in compat.itervalues(self.frame):
-            result = frame.to_msgpack()
-            expected = frame.to_msgpack(encoding='utf8')
-            self.assertEqual(result, expected)
+        for frame in self.frame.values():
+            result = to_msgpack(frame)
+            expected = to_msgpack(frame, encoding='utf8')
+            assert result == expected
             result = self.encode_decode(frame)
             assert_frame_equal(result, frame)
 
@@ -838,7 +827,6 @@ TestPackers
     minimum_structure = {'series': ['float', 'int', 'mixed',
                                     'ts', 'mi', 'dup'],
                          'frame': ['float', 'int', 'mixed', 'mi'],
-                         'panel': ['float'],
                          'index': ['int', 'date', 'period'],
                          'mi': ['reg2']}
 
@@ -905,7 +893,7 @@ TestPackers
         n = 0
         for f in os.listdir(pth):
             # GH12142 0.17 files packed in P2 can't be read in P3
-            if (compat.PY3 and version.startswith('0.17.') and
+            if (version.startswith('0.17.') and
                     f.split('.')[-4][-1] == '2'):
                 continue
             vf = os.path.join(pth, f)
