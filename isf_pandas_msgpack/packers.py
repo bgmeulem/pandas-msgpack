@@ -43,15 +43,15 @@ from datetime import datetime, date, timedelta
 from dateutil.parser import parse
 import os
 from textwrap import dedent
-import warnings
 
 import numpy as np
-from pandas import compat
 import io
-try:
-    compat.string_types
-except AttributeError:
-    compat.string_types = (str,)
+# from pandas import compat
+# try:
+#     compat.string_types
+# except AttributeError:
+#     compat.string_types = (str,)
+STRING_TYPES = (str,)
 
 if PY3:
     def u(s):
@@ -215,7 +215,7 @@ def to_msgpack(path_or_buf, *args, **kwargs):
         for a in args:
             fh.write(pack(a, **kwargs))
 
-    if isinstance(path_or_buf, compat.string_types):
+    if isinstance(path_or_buf, STRING_TYPES):
         with open(path_or_buf, mode) as fh:
             writer(fh)
     elif path_or_buf is None:
@@ -251,7 +251,7 @@ def read_msgpack(path_or_buf, encoding='utf-8', iterator=False, **kwargs):
         return l
 
     # see if we have an actual file
-    if isinstance(path_or_buf, compat.string_types):
+    if isinstance(path_or_buf, STRING_TYPES):
 
         try:
             exists = os.path.exists(path_or_buf)
@@ -845,7 +845,7 @@ class Iterator(object):
         try:
 
             # see if we have an actual file
-            if isinstance(self.path, compat.string_types):
+            if isinstance(self.path, STRING_TYPES):
 
                 try:
                     path_exists = os.path.exists(self.path)
