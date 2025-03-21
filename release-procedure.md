@@ -6,13 +6,16 @@
 
         git push origin master --tags
 
+*  Verify the version number is correct
+
+        pixi r get_version
+        0.1.22
+
+        # if it contains .dev, you can always override before building with:
+        export SETUPTOOLS_SCM_PRETEND_VERSION=0.1.21
+
 *  Upload to PyPI
 
-        git clean -xfd
-        python setup.py register sdist --formats=gztar
+        rm -rf dist/
+        pixi r build
         twine upload dist/*
-
-*  Do a pull-request to the feedstock on `pandas-msgpack-feedstock <https://github.com/conda-forge/pandas-msgpack-feedstock/>`__
-
-        update the version
-        update the SHA256 (retrieve from PyPI)
